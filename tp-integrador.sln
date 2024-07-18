@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tp-integrador", "tp-integrador\tp-integrador.csproj", "{0DFE4DFA-84B6-4D97-8356-E1C32FA4C26B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{4E10D1BC-E109-4524-ABE0-BF1D05AC350B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{610E0CFC-D1A5-4B41-9F5B-2116646A51D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DFE4DFA-84B6-4D97-8356-E1C32FA4C26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFE4DFA-84B6-4D97-8356-E1C32FA4C26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFE4DFA-84B6-4D97-8356-E1C32FA4C26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFE4DFA-84B6-4D97-8356-E1C32FA4C26B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E10D1BC-E109-4524-ABE0-BF1D05AC350B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E10D1BC-E109-4524-ABE0-BF1D05AC350B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E10D1BC-E109-4524-ABE0-BF1D05AC350B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E10D1BC-E109-4524-ABE0-BF1D05AC350B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610E0CFC-D1A5-4B41-9F5B-2116646A51D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610E0CFC-D1A5-4B41-9F5B-2116646A51D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610E0CFC-D1A5-4B41-9F5B-2116646A51D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610E0CFC-D1A5-4B41-9F5B-2116646A51D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5569CE8B-8216-4D0A-99F6-F10E3F11A356}
+	EndGlobalSection
+EndGlobal
