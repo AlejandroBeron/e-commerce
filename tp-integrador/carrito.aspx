@@ -9,7 +9,7 @@
                 <h1>Tu Carrito  </h1>
             </div>
             <div class="col-auto">
-                <a href="<%:ResolveUrl("~/Default.aspx?") %>" class="btn btn-success" style="background-color: seagreen; color: ghostwhite; font-weight: bold; border-color: darkslategray">Salir</a>
+                <a href="<%:ResolveUrl("~/Default.aspx?") %>" class="btn btn-success" style="background-color: seagreen; color: ghostwhite; font-weight:bold; border-color: mediumaquamarine">Salir</a>
             </div>
         </div>
 
@@ -18,12 +18,12 @@
         <table class="table cart-items" style="text-align: center; vertical-align: middle; width: 70%; margin-left: 15%; margin-right: 15%;">
             <thead>
                 <tr>
-                    <th scope="col" style="color: mediumseagreen; width: 50%;"><strong>Producto</strong></th>
+                    <th scope="col" style="color:mediumaquamarine; width: 50%;"><strong>Producto</strong></th>
                     <th scope="col" style="width: 50%;"></th>
-                    <th scope="col" style="color: mediumseagreen; width: 50%; font: 100;"><strong>Precio</strong></th>
-                    <th scope="col" style="color: mediumseagreen; width: 40%;"><strong>Cantidad</strong></th>
-                    <th scope="col" style="color: mediumseagreen; width: 50%;"><strong>Subtotal</strong></th>
-                    <th scope="col" style="color: mediumseagreen; width: 30%;"></th>
+                    <th scope="col" style="color: mediumaquamarine; width: 50%; font: 100;"><strong>Precio</strong></th>
+                    <th scope="col" style="color: mediumaquamarine; width: 40%;"><strong>Cantidad</strong></th>
+                    <th scope="col" style="color: mediumaquamarine; width: 50%;"><strong>Subtotal</strong></th>
+                    <th scope="col" style="color: mediumaquamarine; width: 30%;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -72,7 +72,7 @@
 
 
     <center>
-        <div style="padding-top: 1%; padding-bottom: 1%; background-color: seagreen; color: antiquewhite;">
+        <div style="padding-top: 1%; padding-bottom: 1%; background-color:mediumaquamarine; color: antiquewhite;">
             <h2>Cantidad de Total de Articulos: <%:carritoactual.TotalProductos.ToString() %></h2>
             <h2>Precio Total: $<%:carritoactual.TotalPrecio.ToString() %></h2>
             <div>

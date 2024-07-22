@@ -19,13 +19,13 @@
 
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" style="height: 550px ">
+            <div class="carousel-item active" style="height: 600px ">
                 <img src="https://cdn5.f-cdn.com/contestentries/879958/19924362/58216f8ace5bd_thumb900.jpg" class="d-block w-100" alt="...">
             </div>
-            <div class="carousel-item  " style="height: 550px ">
+            <div class="carousel-item  " style="height: 600px ">
                 <img src="https://thumbs.dreamstime.com/z/banner-de-venta-electr%C3%B3nica-con-dispositivos-electr%C3%B3nico-compra-y-entrega-en-l%C3%ADnea-cesta-compras-273419752.jpg" class="d-block w-100" alt="...">
             </div>
-            <div class="carousel-item " style="height: 550px ">
+            <div class="carousel-item " style="height: 600px ">
                 <img src="https://cdn2.f-cdn.com/contestentries/879958/20652203/581cb502386f4_thumb900.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
@@ -95,7 +95,7 @@
     <footer style="background-color:navy">
         <hr />
         <div class="text-center">
-            <div class="Redes_sociales">
+            <div class="Redes_sociales" style="color:antiquewhite">
                 <h5><strong>¡Seguinos en Nuestras Redes!</strong></h5>
 
                 <div class="mx-auto d-flex">
@@ -111,7 +111,7 @@
         </div>
         <br />
         <div class="text-center">
-            <div class="autores">
+            <div class="autores" style="color:antiquewhite">
                 <p><strong>Autores: Macarena Casas - Alejandro Beron © 2024 </strong></p>
                 <br />
             </div>

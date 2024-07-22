@@ -104,6 +104,7 @@
     <Content Include="Alta_Modificacion.aspx" />
     <Content Include="BandejaVacia.aspx" />
     <Content Include="carrito.aspx" />
+    <Content Include="CarritoVacio.aspx" />
     <Content Include="ConfirmarPublicaciones.aspx" />
     <Content Include="ConfirmarUsuario.aspx" />
     <Content Include="Contacto.aspx" />
@@ -143,6 +144,13 @@
     <Compile Include="carrito.aspx.cs">
       <DependentUpon>carrito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarritoVacio.aspx.cs">
+      <DependentUpon>CarritoVacio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarritoVacio.aspx.designer.cs">
+      <DependentUpon>CarritoVacio.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfirmarPublicaciones.aspx.cs">
       <DependentUpon>ConfirmarPublicaciones.aspx</DependentUpon>
