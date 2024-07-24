@@ -28,16 +28,16 @@ namespace tp_integrador
                 lista = (Carrito)Session["carro"];
 
             }
-            favoritos.Text = lista.TotalProductos.ToString();
+            // favoritos.Text = lista.TotalProductos.ToString();
             usuario = (Usuario)Session["usuario"];
         }
 
         protected void Buscar(string text)
         {
-            List<Articulos> aux = (List<Articulos>)Session["listaarticulos"];
+            List<Articulos> aux = (List<Articulos>)Session["listaarticulo"];
             listafiltrada = aux.FindAll(x => x.nombre_a.ToUpper().Contains(text.ToUpper()) ||
            x.categoria_a.nombre_categoria.ToUpper().Contains(text.ToUpper()));
-            Session.Add("articulosfiltrados", listafiltrada);
+            Session.Add("articulofiltrados", listafiltrada);
             if (!string.Equals(Request.Url.AbsolutePath, "/Default.aspx", StringComparison.OrdinalIgnoreCase))
             {
                 Response.Redirect($"Default.aspx");
@@ -50,9 +50,9 @@ namespace tp_integrador
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (tbBuscar.Text != "")
+            if (TextBox1.Text != "")
             {
-                Buscar(tbBuscar.Text);
+                Buscar(TextBox1.Text);
             }
         }
 
