@@ -1,4 +1,4 @@
-﻿<<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.Master.cs" Inherits="tp_integrador.Site1" %>
+﻿<<<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.Master.cs" Inherits="tp_integrador.Site1" %>
 
 
 <!DOCTYPE html>
@@ -45,12 +45,19 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+       
         <nav class="navbar bg-body-tertiary fixed-top" style="background-color: deepskyblue" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Default.aspx">Bienvenido</a>
+                <a href="carrito.aspx" class="nav-link" style="align-items: flex-end;">
+                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 1100px; margin-right: 20px;"><i class="bi bi-cart "></i></p>
+                    <asp:Label Text="" ID="favoritos" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute  translate-middle" Style="top: 15px; margin-left: 1083px;" />
+                    <span class="visually-hidden">Inmuebles en Favoritos</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+             
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Opciones</h5>
@@ -73,11 +80,11 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#">....</a></li>
+                                    <li><a class="dropdown-item" href="#">!Contactanos!</a></li>
                                 </ul>
                             </li>
                         </ul>
-                        <div class="mx-auto d-flex" role="search" style="background-color:fuchsia" data-bs-theme="dark">
+                        <div class="mx-auto d-flex" role="search" style="background-color:darkgray" data-bs-theme="dark">
                             <asp:Button ID="Button1" Text="Buscar" OnClick="btnBuscar_Click" runat="server" Style="visibility: hidden" />
                             <asp:TextBox runat="server" ID="TextBox1" class="p-3 text-ligth bg-primary-subtle border border-primary-subtle rounded-3" placeholder="..." aria-label="search" Style="width: 700px;"></asp:TextBox>
                             <asp:Button runat="server" Text="Buscar" OnClick="btnBuscar_Click" ID="Button2" class="btn btn-outline-light" UseSubmitBehavior="false"></asp:Button>
@@ -86,7 +93,11 @@
                 </div>
             </div>
         </nav>
-
+        <div class="text-center">
+            <div class="Redes_sociales" style="background-color:black; color:antiquewhite; font-size: 160%;  height: 40px;">
+               <h5><strong>¡Todos los dias tenemos 3 y 6 cuotas sin interes!</strong></h5>
+             </div>
+             </div>
       <% /*  <div>
             <nav class="navbar " style="background-color: navy" data-bs-theme="info">
                 <a href="Default.aspx" class="nav-link">
