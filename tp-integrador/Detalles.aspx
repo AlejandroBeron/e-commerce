@@ -83,7 +83,7 @@
 
 
 
-                        <asp:Button ID="btnagregarfavorito" class="btn btn-outline-info" runat="server" Text="Agregar al carrito" OnClick="btnagregarfavorito_Click1" Style="font-weight: bold; width: 30%" />
+                        <asp:Button ID="btnagregarfavorito" class="btn btn-light" runat="server" Text="Agregar al carrito" OnClick="btnagregarfavorito_Click1" Style="font-weight: bold; width: 30%;" />
 
 
 
@@ -93,13 +93,13 @@
                         <% }%>
                         <br />
                         <br />
-                        <a class="btn btn-outline-primary text-black text-decoration-none" href="Default.aspx" style="margin-bottom: 2px; width: 30%"><strong>Atrás</strong></a>
-                        <a class="btn btn-outline-primary text-black text-decoration-none" href="carrito.aspx" style="margin-bottom: 2px; width: 30%"><strong>Comprar</strong></a>
+                        <a class="btn btn-dark text-white text-decoration-none" href="Default.aspx" style="margin-bottom: 2px; width: 30%"><strong>Atrás</strong></a>
+                        <a class="btn btn-dark text-white text-decoration-none" href="carrito.aspx" style="margin-bottom: 2px; width: 30%"><strong>Comprar</strong></a>
 
                     </center>
                 </div>
 
-                <div class="card border-primary" style="border-color: blue; margin-left: 10px; height: 600px; width: 500px">
+                <div class="card border-dark" style="border-color: blue; margin-left: 10px; height: 600px; width: 500px">
                     <center>
                         <div id="DatosArticulos">
                             <div class="card-header text-center" style="font-size: 25px; text-align: center; color: midnightblue; border-block-color: blue;">
@@ -137,55 +137,67 @@
                             </div>
                             <br />
                             
-                            <a id="sendbtn"  class="shortcode_wa_button btn btn-success text-white text-decoration-none" href="https://web.whatsapp.com/send?phone=5491136482023&amp;text=Hola, quiero realizar una consulta." style="margin-bottom: 2px; width: 40%";><span>Realizá tu Consulta</span></a>
+                            <a id="sendbtn"  class="shortcode_wa_button btn btn-success text-white text-decoration-none" href="https://web.whatsapp.com/send?phone=5491136482023&amp;text=Hola, quiero realizar una consulta." style="margin-bottom: 2px; width: 40%";><span>Realizá tu Consulta <i class="bi bi-whatsapp"></i></span></a>
                             <div class="card-footer text-center" style="margin-top: 10px; text-align: center; color: midnightblue; border-block-color: black;">
+                             
                                 <%/*   <div class="form-check" style="text-align: center;">
-                                                <label for="inputState" class="form-label" style="color: navy;"><strong>Servicio:</strong></label>
+                                                            <label for="inputState" class="form-label" style="color: navy;"><strong>Servicio:</strong></label>
 
-                                                <div class="mx-auto d-flex" style="justify-content: center;">
-                                                    <div class="form-check form-check-inline">
-                                                        <asp:CheckBox Text="Aire" runat="server" ID="Checkaire" Style="font-weight: bold; color: black;" />
-                                                    </div>
-                                                    <div class="form-check form-check-inline ">
-                                                        <asp:CheckBox Text="Patio" runat="server" ID="Checkpatio" Style="font-weight: bold; color: black;" />
-                                                    </div>
+                                                            <div class="mx-auto d-flex" style="justify-content: center;">
+                                                                <div class="form-check form-check-inline">
+                                                                    <asp:CheckBox Text="Aire" runat="server" ID="Checkaire" Style="font-weight: bold; color: black;" />
+                                                                </div>
+                                                                <div class="form-check form-check-inline ">
+                                                                    <asp:CheckBox Text="Patio" runat="server" ID="Checkpatio" Style="font-weight: bold; color: black;" />
+                                                                </div>
 
-                                                    <div class="form-check form-check-inline">
-                                                        <asp:CheckBox Text="Luz" runat="server" ID="Checkluz" Style="font-weight: bold; color: black;" />
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <asp:CheckBox Text="Cochera" runat="server" ID="Checkcochera" Style="font-weight: bold; color: black;" />
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <asp:CheckBox Text="Cloaca" runat="server" ID="Checkcloaca" Style="font-weight: bold; color: black;" />
-                                                    </div>
-                                                </div>
-                                                <br />
-                                                <div class="row g-3">
-                                                    <div class="mx-auto d-flex" style="justify-content: center;">
-                                                        <div class="form-check form-check-inline">
-                                                            <asp:CheckBox Text="Pavimento" runat="server" ID="Checkpavimento" Style="font-weight: bold; color: black;" />
-                                                        </div>
-                                                        <div class="form-check form-check-inline ">
-                                                            <asp:CheckBox Text="Gas Natural" runat="server" ID="checkgas" Style="font-weight: bold; color: black;" />
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <asp:CheckBox runat="server" ID="Checkcalefaccion" Text="Calefacción" Style="font-weight: bold; color: black;" />
+                                                                <div class="form-check form-check-inline">
+                                                                    <asp:CheckBox Text="Luz" runat="server" ID="Checkluz" Style="font-weight: bold; color: black;" />
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <asp:CheckBox Text="Cochera" runat="server" ID="Checkcochera" Style="font-weight: bold; color: black;" />
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <asp:CheckBox Text="Cloaca" runat="server" ID="Checkcloaca" Style="font-weight: bold; color: black;" />
+                                                                </div>
+                                                            </div>
+                                                            <br />
+                                                            <div class="row g-3">
+                                                                <div class="mx-auto d-flex" style="justify-content: center;">
+                                                                    <div class="form-check form-check-inline">
+                                                                        <asp:CheckBox Text="Pavimento" runat="server" ID="Checkpavimento" Style="font-weight: bold; color: black;" />
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline ">
+                                                                        <asp:CheckBox Text="Gas Natural" runat="server" ID="checkgas" Style="font-weight: bold; color: black;" />
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <asp:CheckBox runat="server" ID="Checkcalefaccion" Text="Calefacción" Style="font-weight: bold; color: black;" />
 
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <asp:CheckBox Text="Agua Corriente" runat="server" ID="checkagua" Style="font-weight: bold; color: black;" />
-                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-check form-check-inline">
+                                                                        <asp:CheckBox Text="Agua Corriente" runat="server" ID="checkagua" Style="font-weight: bold; color: black;" />
+                                                                    </div>
 
-                                                    </div>
-                                                </div>
-                                            </div>*/ %>
+                                                                </div>
+                                                            </div>
+                                                        </div>*/ %>
                             </div>
 
                         </div>
                     </center>
 
                 </div>
+                   <br />
+                <br />
+                <br />
+                       <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="#">Detalles</a>
+                         </li>
+                          <li class="nav-item">
+                           <a class="nav-link disabled" aria-disabled="true">Entregas</a>
+                          </li>
+                           </ul>
             </div>
         </center>
     </div>

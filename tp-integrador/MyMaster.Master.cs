@@ -28,7 +28,7 @@ namespace tp_integrador
                 lista = (Carrito)Session["carro"];
 
             }
-            // favoritos.Text = lista.TotalProductos.ToString();
+             favoritos.Text = lista.TotalProductos.ToString();
             usuario = (Usuario)Session["usuario"];
         }
 
