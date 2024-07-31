@@ -15,14 +15,10 @@
 </head>
 <body style="overflow-x: hidden; overflow-y: unset;">
 
+
     <form id="form1" runat="server" style="min-height: 800px;">
-       <%/* <nav class="navbar" style="background-color:black" data-bs-theme="dark">
-            <div class="mx-auto d-flex">
-                <asp:Button ID="btnBuscar" Text="Buscar" OnClick="btnBuscar_Click" runat="server" Style="visibility: hidden" />
-                <asp:TextBox runat="server" ID="tbBuscar" class="p-3 text-ligth bg-primary-subtle border border-primary-subtle rounded-3" placeholder="..." aria-label="search" Style="width: 700px;"></asp:TextBox>
-                <asp:Button runat="server" Text="Buscar" OnClick="btnBuscar_Click" ID="Buscar1" class="btn btn-outline-light" UseSubmitBehavior="false"></asp:Button>
-            </div>
-        </nav>*/ %> 
+        <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("Default.aspx"))
+            {%>
 
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -45,7 +41,9 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-       
+
+        <% } %>
+
         <nav class="navbar bg-body-tertiary fixed-top" style="background-color: deepskyblue" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Default.aspx">Bienvenido</a>
@@ -57,7 +55,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-             
+
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Opciones</h5>
@@ -84,67 +82,30 @@
                                 </ul>
                             </li>
                         </ul>
-                        <div class="mx-auto d-flex" role="search" style="background-color:darkgray" data-bs-theme="dark">
-                            <asp:Button ID="Button1" Text="Buscar" OnClick="btnBuscar_Click" runat="server" Style="visibility: hidden" />
-                            <asp:TextBox runat="server" ID="TextBox1" class="p-3 text-ligth bg-primary-subtle border border-primary-subtle rounded-3" placeholder="..." aria-label="search" Style="width: 700px;"></asp:TextBox>
-                            <asp:Button runat="server" Text="Buscar" OnClick="btnBuscar_Click" ID="Button2" class="btn btn-outline-light" UseSubmitBehavior="false"></asp:Button>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </nav>
         <div class="text-center">
-            <div class="Redes_sociales" style="background-color:black; color:antiquewhite; font-size: 160%;  height: 40px;">
-               <h5><strong>¡Todos los dias tenemos 3 y 6 cuotas sin interes!</strong></h5>
-             </div>
-             </div>
-      <% /*  <div>
-            <nav class="navbar " style="background-color: navy" data-bs-theme="info">
-                <a href="Default.aspx" class="nav-link">
-                    <p style="text-align: left; font-size: 160%; color: white; margin-left: 20px; margin-right: 5px;"><i class="bi bi-house-door-fill "></i></p>
-                    <span class="visually-hidden">Página Principal</span>
-                </a>
-                <a href="Alta_Modificacion.aspx" class="nav-link" style="align-items: flex-start;">
-                    <p style="text-align: left; font-size: 160%; color: white; margin-left: 20px;"><i class="bi bi-house-add-fill"></i></p>
-                    <asp:Label Text="" ID="altaymodificar" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute start-100 translate-middle" Style="top: 15px; margin-left: -20px;" />
-                    <span class="visually-hidden">Alta_Modificacion</span>
-                </a>
-
-
-                <a href="Login.aspx" class="nav-link" style="align-items: flex-end;">
-                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 5px; margin-right: 20px;"><i class="bi bi-person-plus-fill "></i></p>
-                    <span class="visually-hidden">Ingreso</span>
-                </a>
-
-                <a href="MisPublicaciones.aspx" class="nav-link" style="align-items: flex-end;">
-                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 5px; margin-right: 20px;"><i class="bi bi-house-fill "></i></p>
-                    <asp:Label Text="" ID="publicaciones" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute start-100 translate-middle" Style="top: 15px; margin-left: -20px;" />
-                    <span class="visually-hidden">Mis Publicaciones</span>
-                </a>
-                <a href="carrito.aspx" class="nav-link" style="align-items: flex-end;">
-                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 5px; margin-right: 20px;"><i class="bi bi-cart "></i></p>
-                    <asp:Label Text="" ID="favoritos" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute  translate-middle" Style="top: 15px; margin-left: -20px;" />
-                    <span class="visually-hidden">Inmuebles en Favoritos</span>
-                </a>
-                <a href="Mensajeria.aspx" class="nav-link" style="align-items: flex-end;">
-                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 5px; margin-right: 20px;"><i class="bi bi-envelope  "></i></p>
-                    <asp:Label Text="" ID="mensajeria" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute  translate-middle" Style="top: 15px; margin-left: -20px;" />
-                    <span class="visually-hidden">Mis mensajes</span>
-                </a>
-                <a href="Default.aspx" class="nav-link" style="align-items: flex-end;">
-                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 5px; margin-right: 20px;"><i class="bi bi-person-dash-fill "></i></p>
-                    <asp:Button Text="" ID="cerrar" OnClick="cerrar_Click" runat="server" CssClass="position-absolute translate-middle" Style="width: 60px; height: 40px; top: 25px; margin-left: 0px; background-color: transparent; border-color: transparent;" />
-                    <span class="visually-hidden">Cerrar Sesion</span>
-                </a>
-
-
-            </nav>
-        </div>*/ %> 
+            <div class="Redes_sociales" style="background-color: black; color: antiquewhite; font-size: 160%; height: 40px;">
+                <h5><strong>¡Todos los dias tenemos 3 y 6 cuotas sin interes!</strong></h5>
+            </div>
+        </div>
+            <div class="mx-auto d-flex" role="search" style="background-color: black" data-bs-theme="dark">
+        <center>
+                <asp:Button ID="Button1" Text="Buscar" OnClick="btnBuscar_Click" runat="server" Style="visibility: hidden" />
+                <asp:TextBox runat="server" ID="TextBox1" class="p-3 text-ligth bg-ligth border border-ligth-subtle rounded-3" placeholder="..." aria-label="search" Style="width: 750px; margin-left: 200px; border-color:aliceblue; color: white;"></asp:TextBox>
+                <asp:Button runat="server" Text="Buscar" OnClick="btnBuscar_Click" ID="Button2" class="btn btn-outline-dark p-3 text-ligth" Style="border-color:aliceblue; color: white;" UseSubmitBehavior="false"></asp:Button>
+        </center>
+            </div>
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </form>
-    <footer style="background-color:black">
+    <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("Default.aspx"))
+            {%>
+    <footer style="background-color: black">
         <hr />
         <div class="text-center">
             <div class="Redes_sociales" style="color: antiquewhite">
@@ -169,6 +130,59 @@
             </div>
         </div>
     </footer>
+     <% } %>
+    <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("Detalles.aspx"))
+            {%>
+    <footer style="background-color:black; padding-top: 20px;">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color:white;" class="h5 mb-3"><strong>Compra en Linea </strong></p>
+                    <div class="mb-2">
+                        <a class="text-dark text-decoration-none"  href="carrito.aspx">Mi Carrito</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-dark text-decoration-none" href="#">Mis Compras</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color:white;" class="h5 mb-3"><strong>Acerca de: </strong></p>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color:white;">Promociones</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-decoration-none"  href="#" style="color: white;">Metodos de Pago</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class=" text-decoration-none"  href="#" style="color: white;">Consulta Envios</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color:white;" class="h5 mb-3"><strong>Ayuda </strong></p>
+                    <div class="mb-2">
+                        <a class="text-dark text-decoration-none" href="#">Politicas de Privacidad</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-dark text-decoration-none" href="PreguntasFrecuentes.aspx">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-dark text-decoration-none" href="#">Centro de Seguridad</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color:white;" class="h5 mb-3"><strong>Atencion Al Cliente  </strong></p>
+                    <div class="mb-2">
+                        <a class="text-dark text-decoration-none" href="#"><i class="bi bi-whatsapp"></i></a>
+                    </div>
 
+                </div>
+                <div class="col-xs-12">
+                    <p style="color:white; padding-top: 20px;" class="text-white text-center"><strong>&copy; 2024 - Alejandro Beron </strong></p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+        <% } %>
 </body>
 </html>
