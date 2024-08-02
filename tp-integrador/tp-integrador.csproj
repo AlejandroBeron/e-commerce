@@ -118,11 +118,13 @@
     <Content Include="Mensajeria.aspx" />
     <Content Include="MisPublicaciones.aspx" />
     <Content Include="Pagos.aspx" />
+    <Content Include="Preguntas.aspx" />
     <Content Include="RecuperarPass.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="SinPublicaciones.aspx" />
     <Content Include="SinPublicacionesAlta.aspx" />
     <Content Include="SinUsuarios.aspx" />
+    <Content Include="Somos.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
@@ -243,6 +245,13 @@
     <Compile Include="Pagos.aspx.designer.cs">
       <DependentUpon>Pagos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Preguntas.aspx.cs">
+      <DependentUpon>Preguntas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Preguntas.aspx.designer.cs">
+      <DependentUpon>Preguntas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyMaster.Master.cs">
       <DependentUpon>MyMaster.Master</DependentUpon>
@@ -292,6 +301,13 @@
     </Compile>
     <Compile Include="SinUsuarios.aspx.designer.cs">
       <DependentUpon>SinUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Somos.aspx.cs">
+      <DependentUpon>Somos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Somos.aspx.designer.cs">
+      <DependentUpon>Somos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

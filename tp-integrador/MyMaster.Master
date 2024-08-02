@@ -74,7 +74,8 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="carrito.aspx">Carrito</a></li>
-                                    <li><a class="dropdown-item" href="#">¿Quienes somos?</a></li>
+                                    <li><a class="dropdown-item" href="Somos.aspx">¿Quienes somos?</a></li>
+                 
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -139,10 +140,10 @@
                 <div class="col-xs-12 col-md-6 col-lg-3">
                     <p style="color:white;" class="h5 mb-3"><strong>Compra en Linea </strong></p>
                     <div class="mb-2">
-                        <a class="text-dark text-decoration-none"  href="carrito.aspx">Mi Carrito</a>
+                        <a class="text-decoration-none" href="carrito.aspx" style="color:white;">Mi Carrito</a>
                     </div>
                     <div class="mb-2">
-                        <a class="text-dark text-decoration-none" href="#">Mis Compras</a>
+                        <a class="text-decoration-none" href="#" style="color:white;">Mis Compras</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 col-lg-3">
@@ -154,25 +155,25 @@
                         <a class="text-decoration-none"  href="#" style="color: white;">Metodos de Pago</a>
                     </div>
                     <div class="mb-2">
-                        <a class=" text-decoration-none"  href="#" style="color: white;">Consulta Envios</a>
+                        <a class="text-decoration-none"  href="#" style="color: white;">Consulta Envios</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 col-lg-3">
                     <p style="color:white;" class="h5 mb-3"><strong>Ayuda </strong></p>
                     <div class="mb-2">
-                        <a class="text-dark text-decoration-none" href="#">Politicas de Privacidad</a>
+                        <a class="text-decoration-none" href="#" style="color:white;">Politicas de Privacidad</a>
                     </div>
                     <div class="mb-2">
-                        <a class="text-dark text-decoration-none" href="PreguntasFrecuentes.aspx">Preguntas Frecuentes</a>
+                        <a class="text-decoration-none" href="Preguntas.aspx" style="color:white;">Preguntas Frecuentes</a>
                     </div>
                     <div class="mb-2">
-                        <a class="text-dark text-decoration-none" href="#">Centro de Seguridad</a>
+                        <a class="text-decoration-none" href="#" style="color:white;">Centro de Seguridad</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6 col-lg-3">
                     <p style="color:white;" class="h5 mb-3"><strong>Atencion Al Cliente  </strong></p>
                     <div class="mb-2">
-                        <a class="text-dark text-decoration-none" href="#"><i class="bi bi-whatsapp"></i></a>
+                        <a class="text-decoration-none" href="#" style="color:white;"><i class="bi bi-whatsapp"></i></a>
                     </div>
 
                 </div>
