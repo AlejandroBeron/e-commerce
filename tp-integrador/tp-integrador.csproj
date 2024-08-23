@@ -105,6 +105,7 @@
     <Content Include="BandejaVacia.aspx" />
     <Content Include="carrito.aspx" />
     <Content Include="CarritoVacio.aspx" />
+    <Content Include="CompraRealizada.aspx" />
     <Content Include="ConfirmarPublicaciones.aspx" />
     <Content Include="ConfirmarUsuario.aspx" />
     <Content Include="Contacto.aspx" />
@@ -113,6 +114,7 @@
     <Content Include="EliminarPausar.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="FavoritosVacio.aspx" />
+    <Content Include="FinalizarCompra.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Mensaje.aspx" />
     <Content Include="Mensajeria.aspx" />
@@ -153,6 +155,13 @@
     </Compile>
     <Compile Include="CarritoVacio.aspx.designer.cs">
       <DependentUpon>CarritoVacio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraRealizada.aspx.cs">
+      <DependentUpon>CompraRealizada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraRealizada.aspx.designer.cs">
+      <DependentUpon>CompraRealizada.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfirmarPublicaciones.aspx.cs">
       <DependentUpon>ConfirmarPublicaciones.aspx</DependentUpon>
@@ -209,6 +218,13 @@
     </Compile>
     <Compile Include="FavoritosVacio.aspx.designer.cs">
       <DependentUpon>FavoritosVacio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinalizarCompra.aspx.cs">
+      <DependentUpon>FinalizarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalizarCompra.aspx.designer.cs">
+      <DependentUpon>FinalizarCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

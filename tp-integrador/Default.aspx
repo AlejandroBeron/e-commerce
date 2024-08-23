@@ -17,12 +17,12 @@
             { %>
 
         <div class="col-12 col-md-6 col-lg-4 mb-2">
-           <div class="card border-primary"
+           <div class="card border-dark"
                
-                style="border-color:navy; height: 500px; width: 350px; ">
+                style="border-color:black; height: 500px; width: 350px; ">
            
               
-                <div id="carouselExampleDark_<%: listaArticulo %>" class="carousel carousel-dark slide">
+                <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">
 
 
@@ -96,17 +96,17 @@
                     <div class="card-body text-center" style="margin-bottom: 20px;">
                         <h5 class="card-title" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$<%:articulo.precio_a  %></h5>
                         <p class="card-text" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%:articulo.categoria_a.nombre_categoria%></p>
-                        <a href="<%: ResolveUrl("~/Detalles.aspx?id=" + articulo.Id_a) %>" class="btn btn-outline-info" style="font-weight: bold; border-color: darkturquoise;" title="Detalles">+</a>
+                        <a href="<%: ResolveUrl("~/Detalles.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="Detalles">Ver</a>
                         <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == true)
                             { %>
-                        <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" + articulo.Id_a) %>" class="btn btn-outline-info" style="font-weight: bold; border-color: darkturquoise;" title="modif">Modificar</a>
+                        <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" + articulo.Id_a) %>" class="btn btn-outline-info" style="font-weight: bold; border-color: black;" title="modif">Modificar</a>
                         <%} %>
 
                         <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == false)
                             { %>
                         <a href="Default.aspx?id=<%:articulo.Id_a %>" class="btn btn-outline-info" usesubmitbehavior="false" commandargument='<%=articulo.Id_a%>'
                             style="font-weight: bold; border-color: darkturquoise;">Agregar a Favoritos <i class="bi bi-star-fill "></i></a>
-                        <a href="<%: ResolveUrl("~/Contacto.aspx?id=" ) %>" class="btn btn-outline-info" style="font-weight: bold; border-color: darkturquoise; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
+                        <a href="<%: ResolveUrl("~/Contacto.aspx?id=" ) %>" class="btn btn-outline-info" style="font-weight: bold; border-color: black; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
                         <%} %>
                     </div>
                 </center>
