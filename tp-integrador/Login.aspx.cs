@@ -36,32 +36,12 @@ namespace tp_integrador
                 usuario = negocioUsuario.Loguear(usuario);
                 if (usuario.nombre_u != null)
                 {
-                    if (usuario.Activo == true)
-                    {
-                        Session["usuario"] = usuario;
 
-                        string previousUrl = Session["ReturnUrl"] as string;
-                        if (previousUrl != null)
-                        {
+                    Session["usuario"] = usuario;
 
 
-                            Response.Redirect(previousUrl);
+                    Response.Redirect("Default.aspx");
 
-                        }
-
-                        else
-                        {
-                            Response.Redirect("Default.aspx");
-                        }
-                    }
-
-
-                    else if (usuario.Activo == false)
-                    {
-                        txtmsjerror.Visible = true;
-                        txtmsjerror.Text = "El Usuario todavia no fue Confirmado";
-                        Session.Add("error", "El Usuario todavia no fue Confirmado");
-                    }
                 }
                 else
                 {

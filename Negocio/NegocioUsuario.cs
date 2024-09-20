@@ -42,8 +42,8 @@ namespace Negocio
             Acceso_Datos datos = new Acceso_Datos();
             try
             {
-                datos.setearconsulta("insert into Usuario (Nombre, Contraseña,IDTipo,Saldo,Activo) values(@Nombre, @Contraseña, 0,10000,0)");
-                datos.setearparametro("@Nombre", nuevo.nombre_u);
+                datos.setearconsulta("insert into Usuario (Usuario, Contraseña) values(@Usuario, @Contraseña)");
+                datos.setearparametro("@Usuario", nuevo.nombre_u);
                 datos.setearparametro("@Contraseña", nuevo.contra_u);
                 datos.ejecutaraccion();
 
@@ -68,12 +68,12 @@ namespace Negocio
 
             try
             {
-                datos.setearconsulta("select Nombre , Contraseña from Usuario");
+                datos.setearconsulta("select Usuario , Contraseña from Usuario");
                 datos.ejecutarlectura();
                 while (datos.lector.Read())
                 {
                     Usuario aux = new Usuario();
-                    aux.nombre_u = (string)datos.lector["Nombre"];
+                    aux.nombre_u = (string)datos.lector["Usuario"];
                     aux.contra_u = (string)datos.lector["Contraseña"];
                     lista.Add(aux);
                 }
@@ -137,18 +137,18 @@ namespace Negocio
 
             try
             {
-                datos.setearconsulta("select Id, Nombre, Contraseña, IDTipo, Activo from Usuario where Nombre = @Nombre and Contraseña= @Contraseña ");
-                datos.setearparametro("@Nombre", usuario.nombre_u);
+                datos.setearconsulta("select Usuario, Contraseña from Usuario where Usuario = @Usuario and Contraseña= @Contraseña ");
+                datos.setearparametro("@Usuario", usuario.nombre_u);
                 datos.setearparametro("@Contraseña", usuario.contra_u);
 
                 datos.ejecutarlectura();
 
                 if (datos.lector.Read())
                 {
-                    aux.Activo = (bool)datos.lector["Activo"];
-                    aux.nombre_u = (string)datos.lector["Nombre"];
+
+                    aux.nombre_u = (string)datos.lector["Usuario"];
                     aux.contra_u = (string)datos.lector["Contraseña"];
-                    aux.idtipo_u = (bool)datos.lector["IDTipo"];
+
                     return (aux);
 
                 }

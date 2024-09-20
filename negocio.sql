@@ -31,6 +31,12 @@ ImagenUrl varchar (1000) not null,
 Id_articulo int not null foreign key references Articulo (id_producto)
 )
 go
+create table Usuario(
+Id int identity (1,1) not null,
+Usuario varchar (500) not null,
+Contraseña varchar (500) not null
+)
+go
 insert into Marcas values ('P47'), ('speaker'), ('Sony'), ('kanji'), ('genius')
 insert into Categoria values ('audio'),('mouse y teclados'), ('consolas'), ('celulares')
 insert into Articulo values ('Auricular inalambrico', 'p47', 'Con bluetooth, luces multicolor, cable cargado y ranura tarjeta sd',10999, 1 ,1,1,1 ),
@@ -48,7 +54,11 @@ insert into Imagen (Id_articulo,ImagenUrl) values
 (4, 'https://http2.mlstatic.com/D_NQ_NP_792718-MLU74927819915_032024-O.webp'),
 (5, 'https://http2.mlstatic.com/D_NQ_NP_926293-MLU77218957555_062024-O.webp')
 go
+
+insert into Usuario  (Usuario,Contraseña) values ('admin', 'admin')
+
 select * from Articulo
+select * from Usuario
 
 select A.id_producto As Id, A.codigo As Codigo,A.nombre As Nombre ,A.descripcion As Descripcion ,M.descripcion Marca, C.Id As IdCategoria, M.id As IdMarca ,A.precio  As Precio FROM  Articulo A left JOIN  Marcas M on M.id= A.id_marca left JOIN Categoria C on C.Id= A.id_categoria
 

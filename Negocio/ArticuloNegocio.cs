@@ -32,12 +32,12 @@ namespace Negocio
                     Imagen aux = new Imagen();
 
                     artic.nombre_a = (string)anegocio.lector["Nombre"];
-                   artic.Imagenes = new List<Imagen>();
-                   artic.Id_a = (int)anegocio.lector["Id"];
-                   artic.descripcion_a = (string)anegocio.lector["Descripcion"];
-                   artic.codigo_a = (string)anegocio.lector["Codigo"];
-                   artic.marca_a.Nombre = (string)anegocio.lector["Marca"];
-                   artic.marca_a.Codigo = (short)anegocio.lector["IdMarca"];
+                    artic.Imagenes = new List<Imagen>();
+                    artic.Id_a = (int)anegocio.lector["Id"];
+                    artic.descripcion_a = (string)anegocio.lector["Descripcion"];
+                    artic.codigo_a = (string)anegocio.lector["Codigo"];
+                    artic.marca_a.Nombre = (string)anegocio.lector["Marca"];
+                    artic.marca_a.Codigo = (short)anegocio.lector["IdMarca"];
 
 
                     if (anegocio.lector.IsDBNull(anegocio.lector.GetOrdinal("Categoria")))
@@ -58,7 +58,7 @@ namespace Negocio
                         aux.Nombre_imagen = "sinimagen";
                         artic.Imagenes.Add(aux);
                     }
-                    
+
 
 
 
@@ -101,26 +101,26 @@ namespace Negocio
 
         }
 
-        public List <Articulos> listar()
+        public List<Articulos> listar()
         {
-            List <Articulos> lista = new List <Articulos>();
-            Acceso_Datos datos = new Acceso_Datos(); 
-           
+            List<Articulos> lista = new List<Articulos>();
+            Acceso_Datos datos = new Acceso_Datos();
+
             try
             {
-               
+
                 datos.setearconsulta("select A.codigo,A.nombre,A.precio, A.id_producto , A.descripcion,M.descripcion Marca,A.id_marca idMarca,  A.id_categoria IdCategoria from Articulo A left JOIN Marcas M ON A.id_marca = M.id left JOIN Categoria C ON A.id_categoria = C.Id");
-                datos.ejecutarlectura();               
-                    while (datos.lector.Read())
+                datos.ejecutarlectura();
+                while (datos.lector.Read())
                 {
                     Articulos aux = new Articulos();
-                    aux.nombre_a =(string)datos.lector["nombre"];
-                    aux.precio_a=(decimal)datos.lector["precio"];
+                    aux.nombre_a = (string)datos.lector["nombre"];
+                    aux.precio_a = (decimal)datos.lector["precio"];
                     aux.precio_a = Math.Round(aux.precio_a, 2);
                     aux.codigo_a = (string)datos.lector["codigo"];
                     aux.descripcion_a = (string)datos.lector["descripcion"];
                     aux.Id_a = (int)datos.lector["Id"];
-                    
+
                     if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
                     {
                         aux.categoria_a = new Categoria();
@@ -137,7 +137,7 @@ namespace Negocio
                     lista.Add(aux);
 
                 }
-                
+
                 return lista;
             }
             catch (Exception ex)
@@ -152,27 +152,27 @@ namespace Negocio
         }
 
 
-        public void agregar(Articulos nuevo)
+        public void agregar(Articulos nuevo, List<string> imagenUrls)
         {
             Acceso_Datos datos = new Acceso_Datos();
             try
             {
-               datos.setearconsulta("insert into Articulo values ('" + nuevo.codigo_a + "','" + nuevo.nombre_a + "','" + nuevo.descripcion_a+ "', @marca,@categoria , " + nuevo.precio_a + ")");
-               datos.setearparametro("@categoria", nuevo.categoria_a.codigo_categoria);
-               datos.setearparametro("@marca", nuevo.marca_a.Codigo);
-               datos.ejecutaraccion();
-              
-               datos.setearconsulta("SELECT TOP 1 * FROM Articulo ORDER BY Id DESC");
-               int id = Convert.ToInt32(datos.ejecutarScalar());
+                datos.setearconsulta("insert into Articulo values ('" + nuevo.codigo_a + "','" + nuevo.nombre_a + "','" + nuevo.descripcion_a + "', @marca,@categoria , " + nuevo.precio_a + ")");
+                datos.setearparametro("@categoria", nuevo.categoria_a.codigo_categoria);
+                datos.setearparametro("@marca", nuevo.marca_a.Codigo);
+                datos.ejecutaraccion();
 
-               datos.setearconsulta("insert into Imagen(Id_articulo, ImagenUrl) values(@Id,@url)");
-               datos.setearparametro("@Id", id);
-               datos.setearparametro("@url", nuevo.urlimagen);
-               datos.ejecutaraccion();
+                datos.setearconsulta("SELECT TOP 1 * FROM Articulo ORDER BY Id DESC");
+                int id = Convert.ToInt32(datos.ejecutarScalar());
+
+                datos.setearconsulta("insert into Imagen(Id_articulo, ImagenUrl) values(@Id,@url)");
+                datos.setearparametro("@Id", id);
+                datos.setearparametro("@url", nuevo.urlimagen);
+                datos.ejecutaraccion();
             }
             catch (Exception ex)
             {
-               throw ex;
+                throw ex;
 
             }
             finally
@@ -181,7 +181,7 @@ namespace Negocio
             }
 
         }
-   
+
         public List<Articulos> listarco(string cod)
         {
             List<Articulos> lista = new List<Articulos>();
@@ -200,7 +200,7 @@ namespace Negocio
                     aux.codigo_a = (string)datos.lector["codigo"];
                     aux.descripcion_a = (string)datos.lector["Detalle"];
                     aux.Id_a = (int)datos.lector["id_producto"];
-                 
+
                     if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
                     {
                         aux.categoria_a = new Categoria();
@@ -246,7 +246,7 @@ namespace Negocio
                     aux.codigo_a = (string)datos.lector["Codigo"];
                     aux.descripcion_a = (string)datos.lector["Detalle"];
                     aux.Id_a = (int)datos.lector["Id"];
-                   if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
+                    if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
                     {
                         aux.categoria_a = new Categoria();
                         aux.categoria_a.nombre_categoria = (string)datos.lector["Categoria"];
@@ -291,7 +291,7 @@ namespace Negocio
                     aux.codigo_a = (string)datos.lector["Codigo"];
                     aux.descripcion_a = (string)datos.lector["Detalle"];
                     aux.Id_a = (int)datos.lector["Id"];
-                 
+
                     if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
                     {
                         aux.categoria_a = new Categoria();
@@ -319,6 +319,12 @@ namespace Negocio
             }
             finally { datos.cerrarconexion(); }
         }
+
+        public List<Articulos> Listapropia(string nombre_u)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Articulos> listar(Marca id)
         {
             List<Articulos> lista = new List<Articulos>();
@@ -354,8 +360,8 @@ namespace Negocio
 
                 }
                 return lista;
-                
-             }
+
+            }
             catch (Exception ex)
             {
 
@@ -413,22 +419,22 @@ namespace Negocio
             finally { datos.cerrarconexion(); }
 
         }
-        public void modificar (Articulos articulo)
+        public void modificar(Articulos articulo)
         {
             Acceso_Datos datos = new Acceso_Datos();
 
             try
             {
-                datos.setearconsulta("update ARTICULOS set Codigo=@Codigo, Nombre= @Nombre, Descripcion =@Descripcion,IdMarca=@IdMarca, IdCategoria= @IdCategoria, Precio= @Precio where Id=@Id ");
-                datos.setearparametro("@Codigo",articulo.codigo_a);
+                datos.setearconsulta("update Articulo set codigo=@Codigo, nombre= @Nombre, descripcion =@Descripcion,id_marca=@Id_marca, id_categoria= @Id_categoria, precio= @Precio where id_producto=@Id_producto");
+                datos.setearparametro("@Codigo", articulo.codigo_a);
                 datos.setearparametro("@Nombre", articulo.nombre_a);
-                datos.setearparametro("@Descripcion",articulo.descripcion_a);
-                datos.setearparametro("@IdMarca", articulo.marca_a.Codigo);
-                datos.setearparametro("@IdCategoria",articulo.categoria_a.codigo_categoria);
-                datos.setearparametro("@Precio",articulo.precio_a);
-                datos.setearparametro("@Id", articulo.Id_a);
+                datos.setearparametro("@Descripcion", articulo.descripcion_a);
+                datos.setearparametro("@Id_marca", articulo.marca_a.Codigo);
+                datos.setearparametro("@Id_categoria", articulo.categoria_a.codigo_categoria);
+                datos.setearparametro("@Precio", articulo.precio_a);
+                datos.setearparametro("@Id_producto", articulo.Id_a);
                 datos.ejecutaraccion();
-            
+
             }
             catch (Exception ex)
             {

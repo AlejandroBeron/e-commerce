@@ -9,72 +9,72 @@ namespace Negocio
 {
     public class NegocioInmueble
     {
-       /* public List<Inmueble> uploadInmuebleList(string query)
-        {
-            List<Inmueble> inm = new List<Inmueble>();
-            try
-            {
-                Acceso_Datos inmunegocio = new Acceso_Datos();
-                NegocioImagen inegocio = new NegocioImagen();
+        /* public List<Inmueble> uploadInmuebleList(string query)
+         {
+             List<Inmueble> inm = new List<Inmueble>();
+             try
+             {
+                 Acceso_Datos inmunegocio = new Acceso_Datos();
+                 NegocioImagen inegocio = new NegocioImagen();
 
-                inmunegocio.setearconsulta(query);
-                inmunegocio.ejecutarlectura();
+                 inmunegocio.setearconsulta(query);
+                 inmunegocio.ejecutarlectura();
 
-                while (inmunegocio.lector.Read())
-                {
-                    Inmueble inmueble = new Inmueble();
-                    Ubicacion auxi = new Ubicacion();
-                    Imagen aux = new Imagen();
+                 while (inmunegocio.lector.Read())
+                 {
+                     Inmueble inmueble = new Inmueble();
+                     Ubicacion auxi = new Ubicacion();
+                     Imagen aux = new Imagen();
 
-                    inmueble.NombreUsuario = (string)inmunegocio.lector["Nombreusuario"];
-                    inmueble.Imagenes = new List<Imagen>();
-                    inmueble.Id_I = (int)inmunegocio.lector["Id"];
-                    inmueble.nombre_I = (string)inmunegocio.lector["Nombre"];
-                    inmueble.descripcion_I = (string)inmunegocio.lector["Descripcion"];
-                    if (inmunegocio.lector.IsDBNull(inmunegocio.lector.GetOrdinal("Categoria")))
-                    {
-                        inmueble.categoria_I.nombre_categoria = " ";
-                    }
-                    else
-                    {
-                        inmueble.categoria_I.nombre_categoria = (string)inmunegocio.lector["Categoria"];
-                        inmueble.categoria_I.codigo_categoria = (short)inmunegocio.lector["IdCategoria"];
-                    }
-                    inmueble.ubicacion.Direccion = (string)inmunegocio.lector["Domicilio"];
-                    inmueble.ubicacion.Codigo_Postal = (int)inmunegocio.lector["Codigo_Postal"];
-                    inmueble.ubicacion.Localidad = (string)inmunegocio.lector["Localidad"];
-                    inmueble.ubicacion.Partido = (string)inmunegocio.lector["Partido"];
-                    inmueble.tipo_operacion = (string)inmunegocio.lector["TipoOperacion"];
-                    inmueble.precio_I = (decimal)inmunegocio.lector["Precio"];
-                    inmueble.precio_I = Math.Round(inmueble.precio_I, 2);
-                    inmueble.ambientes = (int)inmunegocio.lector["Ambientes"];
-                    inmueble.baños = (int)inmunegocio.lector["Baños"];
-                    inmueble.gasnatural = (bool)inmunegocio.lector["Gas_Natural"];
-                    inmueble.aguacorriente = (bool)inmunegocio.lector["Agua_Corriente"];
-                    inmueble.cloacas = (bool)inmunegocio.lector["Cloacas"];
-                    inmueble.luz = (bool)inmunegocio.lector["Luz"];
-                    inmueble.cochera = (bool)inmunegocio.lector["Cochera"];
-                    inmueble.patio = (bool)inmunegocio.lector["Patio"];
-                    inmueble.aireacondicionado = (bool)inmunegocio.lector["Aire_Acondicionado"];
-                    inmueble.calefaccion = (bool)inmunegocio.lector["Calefacción"];
-                    inmueble.pavimento = (bool)inmunegocio.lector["Pavimento"];
+                     inmueble.NombreUsuario = (string)inmunegocio.lector["Nombreusuario"];
+                     inmueble.Imagenes = new List<Imagen>();
+                     inmueble.Id_I = (int)inmunegocio.lector["Id"];
+                     inmueble.nombre_I = (string)inmunegocio.lector["Nombre"];
+                     inmueble.descripcion_I = (string)inmunegocio.lector["Descripcion"];
+                     if (inmunegocio.lector.IsDBNull(inmunegocio.lector.GetOrdinal("Categoria")))
+                     {
+                         inmueble.categoria_I.nombre_categoria = " ";
+                     }
+                     else
+                     {
+                         inmueble.categoria_I.nombre_categoria = (string)inmunegocio.lector["Categoria"];
+                         inmueble.categoria_I.codigo_categoria = (short)inmunegocio.lector["IdCategoria"];
+                     }
+                     inmueble.ubicacion.Direccion = (string)inmunegocio.lector["Domicilio"];
+                     inmueble.ubicacion.Codigo_Postal = (int)inmunegocio.lector["Codigo_Postal"];
+                     inmueble.ubicacion.Localidad = (string)inmunegocio.lector["Localidad"];
+                     inmueble.ubicacion.Partido = (string)inmunegocio.lector["Partido"];
+                     inmueble.tipo_operacion = (string)inmunegocio.lector["TipoOperacion"];
+                     inmueble.precio_I = (decimal)inmunegocio.lector["Precio"];
+                     inmueble.precio_I = Math.Round(inmueble.precio_I, 2);
+                     inmueble.ambientes = (int)inmunegocio.lector["Ambientes"];
+                     inmueble.baños = (int)inmunegocio.lector["Baños"];
+                     inmueble.gasnatural = (bool)inmunegocio.lector["Gas_Natural"];
+                     inmueble.aguacorriente = (bool)inmunegocio.lector["Agua_Corriente"];
+                     inmueble.cloacas = (bool)inmunegocio.lector["Cloacas"];
+                     inmueble.luz = (bool)inmunegocio.lector["Luz"];
+                     inmueble.cochera = (bool)inmunegocio.lector["Cochera"];
+                     inmueble.patio = (bool)inmunegocio.lector["Patio"];
+                     inmueble.aireacondicionado = (bool)inmunegocio.lector["Aire_Acondicionado"];
+                     inmueble.calefaccion = (bool)inmunegocio.lector["Calefacción"];
+                     inmueble.pavimento = (bool)inmunegocio.lector["Pavimento"];
 
-                    inmueble.Imagenes = inegocio.ListarItems(inmueble.Id_I);
-                    if (inmueble.Imagenes.Count() == 0)
-                    {
-                        aux.Nombre_imagen = "sinimagen";
-                        inmueble.Imagenes.Add(aux);
-                    }
-                    inm.Add(inmueble);
-                }
-                return inm;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-       */
+                     inmueble.Imagenes = inegocio.ListarItems(inmueble.Id_I);
+                     if (inmueble.Imagenes.Count() == 0)
+                     {
+                         aux.Nombre_imagen = "sinimagen";
+                         inmueble.Imagenes.Add(aux);
+                     }
+                     inm.Add(inmueble);
+                 }
+                 return inm;
+             }
+             catch (Exception ex)
+             {
+                 throw ex;
+             }
+         }
+        */
 
         public int ObtenerUltimoIdInmueble()
         {
@@ -101,32 +101,7 @@ namespace Negocio
                 datosAcceso.cerrarconexion();
             }
         }
-       /* public List<Inmueble> Listacompleta()
-        {
-          //  return uploadInmuebleList("select I.Id As Id,I.Nombreusuario,I.Domicilio,I.TipoOperacion, I.Nombre As Nombre ,I.Pausa, I.Estado,l.Nombre As Localidad,l.Partido, I.Descripcion As Descripcion, C.Nombre As Categoria, C.Id As IdCategoria, I.Precio  As Precio,I.Ambientes,  I.Baños, I.Gas_Natural,I.Agua_Corriente,I.Cloacas,I.Luz,I.Cochera,I.Patio, I.Aire_Acondicionado,I.Calefacción, I.Pavimento, I.Codigo_Postal FROM  Inmueble I left join Categoria C on C.Id= I.Id_categoria left join Localidad l on l.CP=I.Codigo_Postal where I.Activa=1");
-        }
-       */
-        public bool verificarusuario(string usuari, int id)
-        {
-            Acceso_Datos inmunegocio = new Acceso_Datos();
-            try
-            {
-                inmunegocio.setearconsulta("select I.Id As Id, I.Pausa, I.Estado, I.Nombreusuario FROM  Inmueble I  where I.Nombreusuario = @Nombre and I.Id = @Id");
-                inmunegocio.setearparametro("@Nombre", usuari);
-                inmunegocio.setearparametro("@Id", id);
-                inmunegocio.ejecutarlectura();
 
-                if (inmunegocio.lector.Read() != false)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         public List<Inmueble> Listapropia(string usuari)
         {
 
@@ -235,38 +210,38 @@ namespace Negocio
         }
 
 
-        public void agregar(Inmueble nuevo, List<string> imagenUrls)
+        public void agregar(Articulos nuevo, List<string> imagenUrls)
         {
             Acceso_Datos datos = new Acceso_Datos();
             try
             {
-                datos.setearconsulta("INSERT INTO Inmueble (Nombreusuario,Nombre, Descripcion,Domicilio, Id_categoria, Codigo_Postal, Precio, Ambientes, Baños, Gas_Natural, Agua_Corriente, Cloacas, Luz, Cochera, Patio, Aire_Acondicionado, Calefacción, Pavimento,TipoOperacion,Pausa,Estado,Activa)VALUES (@Nombreusuario, @Nombre, @Descripcion,@Domicilio, @Id_categoria,@CodigoPostal, @Precio, @Ambientes, @Baños, @GasNatural, @AguaCorriente, @Cloacas, @Luz, @Cochera, @Patio, @AireAcondicionado, @Calefaccion, @Pavimento, @TipoOperacion,@Pausa,@Estado,@Activa)");
+                datos.setearconsulta("INSERT INTO Articulo (nombre, descripcion,id_categoria, precio,pausa,estado,Activa)VALUES (@nombre, @descripcion, @id_categoria, @Precio,@pausa,@estado)");
 
-                datos.setearparametro("@Nombreusuario", nuevo.NombreUsuario);
-                datos.setearparametro("@Nombre", nuevo.nombre_I);
-                datos.setearparametro("@Descripcion", nuevo.descripcion_I);
-                datos.setearparametro("@Domicilio", nuevo.ubicacion.Direccion);
-                datos.setearparametro("@Id_categoria", nuevo.categoria_I.codigo_categoria);
-                datos.setearparametro("@CodigoPostal", nuevo.ubicacion.Codigo_Postal);
-                datos.setearparametro("@Precio", nuevo.precio_I);
-                datos.setearparametro("@Ambientes", nuevo.ambientes);
-                datos.setearparametro("@Baños", nuevo.baños);
-                datos.setearparametro("@TipoOperacion", nuevo.tipo_operacion);
-                datos.setearparametro("@GasNatural", nuevo.gasnatural);
-                datos.setearparametro("@AguaCorriente", nuevo.aguacorriente);
-                datos.setearparametro("@Cloacas", nuevo.cloacas);
-                datos.setearparametro("@Luz", nuevo.luz);
-                datos.setearparametro("@Cochera", nuevo.cochera);
-                datos.setearparametro("@Patio", nuevo.patio);
-                datos.setearparametro("@AireAcondicionado", nuevo.aireacondicionado);
-                datos.setearparametro("@Calefaccion", nuevo.calefaccion);
-                datos.setearparametro("@Pavimento", nuevo.pavimento);
-                datos.setearparametro("@Estado", 1);
-                datos.setearparametro("@Pausa", 0);
-                datos.setearparametro("@Activa", 0);
+                // datos.setearparametro("@Nombreusuario", nuevo.);
+                datos.setearparametro("@nombre", nuevo.nombre_a);
+                datos.setearparametro("@descripcion", nuevo.descripcion_a);
+                // datos.setearparametro("@Domicilio", nuevo.ubicacion.Direccion);
+                datos.setearparametro("@id_categoria", nuevo.categoria_a.codigo_categoria);
+                // datos.setearparametro("@CodigoPostal", nuevo.ubicacion.Codigo_Postal);
+                datos.setearparametro("@precio", nuevo.precio_a);
+                //datos.setearparametro("@Ambientes", nuevo.ambientes);
+                // datos.setearparametro("@Baños", nuevo.baños);
+                //datos.setearparametro("@TipoOperacion", nuevo.tipo_operacion);
+                //datos.setearparametro("@GasNatural", nuevo.gasnatural);
+                // datos.setearparametro("@AguaCorriente", nuevo.aguacorriente);
+                //datos.setearparametro("@Cloacas", nuevo.cloacas);
+                // datos.setearparametro("@Luz", nuevo.luz);
+                //  datos.setearparametro("@Cochera", nuevo.cochera);
+                // datos.setearparametro("@Patio", nuevo.patio);
+                //  datos.setearparametro("@AireAcondicionado", nuevo.aireacondicionado);
+                // datos.setearparametro("@Calefaccion", nuevo.calefaccion);
+                // datos.setearparametro("@Pavimento", nuevo.pavimento);
+                datos.setearparametro("@estado", 1);
+                datos.setearparametro("@pausa", 0);
+                //datos.setearparametro("@Activa", 0);
 
                 datos.ejecutaraccion();
-                datos.setearconsulta("select top 1 Id from Inmueble order by Id desc");
+                datos.setearconsulta("select top 1 id_producto from negocio order by Id desc");
                 int id = Convert.ToInt32(datos.ejecutarScalar());
 
                 NegocioImagen imagen = new NegocioImagen();

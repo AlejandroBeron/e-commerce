@@ -47,7 +47,7 @@
 
                             <% if (articulo.Imagenes[i].Nombre_imagen == "fallacarga")
                                 { %>
-                            <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                            <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
                             <% }
                                 else if (articulo.Imagenes[i].Nombre_imagen == "sinimagen")
                                 { %>
@@ -55,7 +55,7 @@
                             <% }
                                 else
                                 { %>
-                            <img src="<%: articulo.Imagenes[i] %>" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                            <img src="<%: articulo.Imagenes[i] %>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
                             <% }  %>
                         </div>
                         <%}
@@ -72,7 +72,7 @@
                             <% }
                                 else
                                 { %>
-                            <img src=" <%: articulo.Imagenes[i]%>" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                            <img src=" <%: articulo.Imagenes[i]%>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
                             <% } %>
                         </div>
                         <% }
@@ -92,7 +92,7 @@
 
 
                <center>
-                    <div class="card-header text-center" style="font-size: 30px; color: darkblue; border-block-color: blue; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%: articulo.nombre_a %></strong></div>
+                    <div class="card-header text-center" style="font-size: 30px; color: black; border-block-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%: articulo.nombre_a %></strong></div>
                     <div class="card-body text-center" style="margin-bottom: 20px;">
                         <h5 class="card-title" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$<%:articulo.precio_a  %></h5>
                         <p class="card-text" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%:articulo.categoria_a.nombre_categoria%></p>
