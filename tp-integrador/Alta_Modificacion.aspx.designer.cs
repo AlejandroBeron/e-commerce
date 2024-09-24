@@ -42,6 +42,15 @@ namespace tp_integrador
         protected global::System.Web.UI.WebControls.TextBox txtprecio;
 
         /// <summary>
+        /// Control txtdescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdescripcion;
+
+        /// <summary>
         /// Control Updatepanel1.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace tp_integrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptImages;
-
-        /// <summary>
-        /// Control txtdescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdescripcion;
 
         /// <summary>
         /// Control btnAgregar.
