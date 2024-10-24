@@ -11,50 +11,33 @@ namespace tp_integrador
 {
     public partial class EliminarPausar : System.Web.UI.Page
     {
-        public List<Inmueble> listaPropia { get; set; }
-        public Inmueble inmueble { get; set; }
+        public List<Articulos> listar { get; set; }
+        public Articulos articulos { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
             NegocioUsuario usario = new NegocioUsuario();
+            ArticulosNegocio arti = new ArticulosNegocio();
+           
+            listar = (List < Articulos >)Session["listaarticulo"];
+            int Id = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;          
 
-            listaPropia = (List<Inmueble>)Session["listaPropia"];
-            int Id_I = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;
-            inmueble = listaPropia.FirstOrDefault(i => i.Id_I == Id_I);
+            articulos = listar.FirstOrDefault(i => i.Id_a == Id);
+            
             try
             {
 
-                if (inmueble != null && !IsPostBack)
+                if (articulos != null && !IsPostBack)
                 {
-                    lblnombre.InnerText = inmueble.nombre_I;
-                    lblDescripcion.InnerText = inmueble.descripcion_I;
-                    lblprecio.InnerText = "$" + inmueble.precio_I.ToString();
-                    lblcategoria.InnerText = inmueble.categoria_I.nombre_categoria;
-                    lblambientes.Text = inmueble.ambientes.ToString();
-                    lblbaños.Text = inmueble.baños.ToString();
-
-                    checkagua.Enabled = false;
-                    Checkluz.Enabled = false;
-                    checkgas.Enabled = false;
-                    Checkcochera.Enabled = false;
-                    Checkaire.Enabled = false;
-                    Checkpatio.Enabled = false;
-                    Checkpavimento.Enabled = false;
-                    Checkcalefaccion.Enabled = false;
-                    Checkcloaca.Enabled = false;
-
-                    if (inmueble.aguacorriente == true) { checkagua.Checked = true; }
-                    if (inmueble.luz == true) { Checkluz.Checked = true; }
-                    if (inmueble.gasnatural == true) { checkgas.Checked = true; }
-                    if (inmueble.cochera == true) { Checkcochera.Checked = true; }
-                    if (inmueble.aireacondicionado == true) { Checkaire.Checked = true; }
-                    if (inmueble.patio == true) { Checkpatio.Checked = true; }
-                    if (inmueble.pavimento == true) { Checkpavimento.Checked = true; }
-                    if (inmueble.cloacas == true) { Checkcloaca.Checked = true; }
-                    if (inmueble.calefaccion == true) { Checkcalefaccion.Checked = true; }
+                    lblnombre.InnerText = articulos.nombre_a;
+                    lblDescripcion.InnerText = articulos.descripcion_a;
+                    lblprecio.InnerText = "$" + articulos.precio_a;
+                    lblcategoria.InnerText = articulos.categoria_a.nombre_categoria;
+                    lblmarca.InnerText = articulos.codigo_a;
+               
                 }
-                if (inmueble == null)
+                if (articulos == null)
                 {
                     Response.Redirect("~/Default.aspx");
                 }
@@ -73,7 +56,7 @@ namespace tp_integrador
            // int id = .;
 
            // nego.Pausar(id, !inmueble.Pausa);
-            Response.Redirect("~/MisPublicaciones.aspx");
+            Response.Redirect("~/Default.aspx");
 
         }
         protected void btnEliminar_Click(object sender, EventArgs e)

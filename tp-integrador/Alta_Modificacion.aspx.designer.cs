@@ -42,6 +42,33 @@ namespace tp_integrador
         protected global::System.Web.UI.WebControls.TextBox txtprecio;
 
         /// <summary>
+        /// Control tipoCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tipoCodigo;
+
+        /// <summary>
+        /// Control tipoMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tipoMarca;
+
+        /// <summary>
+        /// Control txtmodelo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtmodelo;
+
+        /// <summary>
         /// Control txtdescripcion.
         /// </summary>
         /// <remarks>

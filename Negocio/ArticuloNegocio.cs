@@ -109,7 +109,7 @@ namespace Negocio
             try
             {
 
-                datos.setearconsulta("select A.codigo,A.nombre,A.precio, A.id_producto , A.descripcion,M.descripcion Marca,A.id_marca idMarca,  A.id_categoria IdCategoria from Articulo A left JOIN Marcas M ON A.id_marca = M.id left JOIN Categoria C ON A.id_categoria = C.Id");
+                datos.setearconsulta("select A.codigo,A.nombre,A.precio, A.id_producto , A.descripcion,M.descripcion Marca,A.id_marca idMarca,  A.id_categoria IdCategoria, C.Nombre Categoria from Articulo A left JOIN Marcas M ON A.id_marca = M.id left JOIN Categoria C ON A.id_categoria = C.Id");
                 datos.ejecutarlectura();
                 while (datos.lector.Read())
                 {
@@ -119,20 +119,20 @@ namespace Negocio
                     aux.precio_a = Math.Round(aux.precio_a, 2);
                     aux.codigo_a = (string)datos.lector["codigo"];
                     aux.descripcion_a = (string)datos.lector["descripcion"];
-                    aux.Id_a = (int)datos.lector["Id"];
+                    aux.Id_a = (int)datos.lector["id_producto"];
 
                     if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
                     {
                         aux.categoria_a = new Categoria();
                         aux.categoria_a.nombre_categoria = (string)datos.lector["Categoria"];
-                        aux.categoria_a.codigo_categoria = (int)datos.lector["IdCategoria"];
+                        aux.categoria_a.codigo_categoria = (short)datos.lector["IdCategoria"];
 
                     }
                     if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Marca"))))
                     {
                         aux.marca_a = new Marca();
                         aux.marca_a.Nombre = (string)datos.lector["Marca"];
-                        aux.marca_a.Codigo = (int)datos.lector["IdMarca"];
+                        aux.marca_a.Codigo = (short)datos.lector["IdMarca"];
                     }
                     lista.Add(aux);
 
@@ -157,18 +157,25 @@ namespace Negocio
             Acceso_Datos datos = new Acceso_Datos();
             try
             {
-                datos.setearconsulta("insert into Articulo values ('" + nuevo.codigo_a + "','" + nuevo.nombre_a + "','" + nuevo.descripcion_a + "', @marca,@categoria , " + nuevo.precio_a + ")");
-                datos.setearparametro("@categoria", nuevo.categoria_a.codigo_categoria);
+                datos.setearconsulta("INSERT INTO Articulo (nombre, codigo, descripcion, precio, id_marca, id_categoria, estado, pausa) VALUES(@nombre, @codigo, @descripcion, @precio, @marca, @categoria,1,1)");
+                datos.setearparametro("@codigo", nuevo.codigo_a);
+                datos.setearparametro("@nombre", nuevo.nombre_a);
+                datos.setearparametro("@descripcion", nuevo.descripcion_a);
+                datos.setearparametro("@precio", nuevo.precio_a);
                 datos.setearparametro("@marca", nuevo.marca_a.Codigo);
+                datos.setearparametro("@categoria", nuevo.categoria_a.codigo_categoria);
                 datos.ejecutaraccion();
 
-                datos.setearconsulta("SELECT TOP 1 * FROM Articulo ORDER BY Id DESC");
+                datos.setearconsulta("SELECT TOP 1 * FROM Articulo ORDER BY id_producto DESC");
                 int id = Convert.ToInt32(datos.ejecutarScalar());
 
-                datos.setearconsulta("insert into Imagen(Id_articulo, ImagenUrl) values(@Id,@url)");
-                datos.setearparametro("@Id", id);
-                datos.setearparametro("@url", nuevo.urlimagen);
-                datos.ejecutaraccion();
+                NegocioImagen imagen = new NegocioImagen();
+                imagen.Agregar(imagenUrls, id);
+
+              //  datos.setearconsulta("insert into Imagen(Id_articulo, ImagenUrl) values(@Id,@url)");
+              //  datos.setearparametro("@Id", id);
+              //  datos.setearparametro("@url", imagenUrls);
+              //  datos.ejecutaraccion();
             }
             catch (Exception ex)
             {
@@ -448,7 +455,7 @@ namespace Negocio
             Acceso_Datos datos = new Acceso_Datos();
             try
             {
-                datos.setearconsulta("DELETE FROM ARTICULOS WHERE Id = @Id ");
+                datos.setearconsulta("DELETE FROM Articulos WHERE Id = @Id ");
                 datos.setearparametro("@Id", Id);
                 datos.ejecutaraccion();
 

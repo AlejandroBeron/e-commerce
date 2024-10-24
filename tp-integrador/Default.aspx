@@ -100,13 +100,14 @@
                         <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == true)
                             { %>
                         <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Modificar</a>
+                        <a href="<%: ResolveUrl("~/EliminarPausar.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Eliminar/Pausar</a>
                         <%} %>
 
                         <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == false)
                             {%>
                         <a href="Default.aspx?id=<%:articulo.Id_a %>" class="btn btn-dark" usesubmitbehavior="false" commandargument='<%=articulo.Id_a%>'
                             style="font-weight: bold; border-color: black;">Agregar a Favoritos <i class="bi bi-star-fill "></i></a>
-                        <a href="<%: ResolveUrl("~/Contacto.aspx?id=" ) %>" class="btn btn-dark" style="font-weight: bold; border-color: black; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
+                        <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" ) %>" class="btn btn-dark" style="font-weight: bold; border-color: black; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
                         <%}%>
                     </div>
                 </center>

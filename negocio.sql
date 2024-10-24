@@ -59,6 +59,7 @@ insert into Usuario  (Usuario,Contraseña) values ('admin', 'admin')
 
 select * from Articulo
 select * from Usuario
+select * from Marcas
 
 select A.id_producto As Id, A.codigo As Codigo,A.nombre As Nombre ,A.descripcion As Descripcion ,M.descripcion Marca, C.Id As IdCategoria, M.id As IdMarca ,A.precio  As Precio FROM  Articulo A left JOIN  Marcas M on M.id= A.id_marca left JOIN Categoria C on C.Id= A.id_categoria
 

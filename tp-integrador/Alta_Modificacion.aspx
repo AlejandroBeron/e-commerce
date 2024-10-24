@@ -18,9 +18,9 @@
 
     <div class="row g-3">
         <div class="col-md-6">
-            <div class="row g-3" style="margin-left: 15px; font-weight: bold; height: 100px;">
+            <div class="row g-3" style="margin-left: 15px; font-weight: bold; height: 100px; margin-top:0px;">
                 <label for="inputnombre" class="form-label"><strong>Nombre </strong></label>
-                <asp:TextBox runat="server" type="text" class="form-control" Style="border-color: black" ID="txtnombre" placeholder="Ingrese nombre del articulo" />
+                <asp:TextBox runat="server" type="text" class="form-control" Style="border-color: black" ID="txtnombre" placeholder="Ingrese nombre del articulo"/>
                 <asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="txtnombre" ValidationGroup="validacionAgregar" runat="server" />
             </div>
             <br />
@@ -33,71 +33,43 @@
                     </span>
                 </div>
             </div>
-            <%/*<div class="row g-3" style="margin-left: 25px; font-weight: bold;">
-<label for="inputGroupSelect01" class="form-label">Tipo de Propiedad</label>
-<asp:DropDownList runat="server" ID="selpropiedad" AppendDataBoundItems="true" class="form-select" Style="border-color: aqua">
-</asp:DropDownList>
-</div>*/ %>
             <br />
-                <div class="col-5">
             <div class="row g-3">
-                <div class="col-md-10" style="margin-left: 15px;">
-                    <label for="inputCity" class="form-label"><strong>Descripción:</strong></label>
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtdescripcion" Style="border-color: black; font-weight: bold; height: 100px; overflow: auto; white-space: pre-wrap;"/>
-                    <asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="txtdescripcion" ValidationGroup="validacionAgregar" runat="server" />
+                <div class="input-group mb-3" style="height: 45px; width: 280px; border-color: black; margin-left: 15px; font-weight: bold;">
+                    <label class="input-group-text" style="border-color: black; font-weight: bold;" for="inputGroupSelect01">Tipo de categoria:</label>
+                    <asp:DropDownList runat="server" ID="tipoCodigo" class="form-select" Style="width: 20px; border-color: black; font-weight: bold;">
+                       
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="tipoCodigo" ValidationGroup="validacionAgregar" runat="server" InitialValue="" />
+                </div>
+                <div class="input-group mb-3" style="height: 45px; width: 280px; border-color: black; margin-left: 15px; font-weight: bold;">
+                    <label class="input-group-text" style="border-color: black; font-weight: bold;" for="inputGroupSelect01">Tipo de marca:</label>
+                    <asp:DropDownList runat="server" ID="tipoMarca" class="form-select" Style="width: 20px; border-color: black; font-weight: bold;">
+                         
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="tipoCodigo" ValidationGroup="validacionAgregar" runat="server" InitialValue="" />
                 </div>
             </div>
             <br />
-        </div>
+             <div class="row g-3" style="margin-left: 15px; font-weight: bold; height: 100px;">
+                <label for="inputnombre" class="form-label"><strong>Modelo </strong></label>
+                <asp:TextBox runat="server" type="text" class="form-control" Style="border-color: black" ID="txtmodelo" placeholder="Ingrese el modelo" />
+                <asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="txtmodelo" ValidationGroup="validacionAgregar" runat="server" />
+            </div>
+            <br />
 
-            <%/*  <div class="row g-3">
-<div class="input-group mb-3" style="height: 45px; width: 280px; border-color: aqua; margin-left: 25px; font-weight: bold;">
-<label class="input-group-text" style="border-color: aqua; font-weight: bold;" for="inputGroupSelect01">Ambientes:</label>
-<asp:DropDownList runat="server" ID="ambientes" class="form-select" Style="width: 15px; border-color: aqua; font-weight: bold;">
-<asp:ListItem Text="1" />
-<asp:ListItem Text="2" />
-<asp:ListItem Text="3" />
-<asp:ListItem Text="4" />
-<asp:ListItem Text="5" />
-</asp:DropDownList>
-<asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="ambientes" ValidationGroup="validacionAgregar" runat="server" InitialValue="0" />
-</div>
-<div class="input-group mb-3" style="height: 45px; width: 280px; border-color: aqua; margin-left: 25px; font-weight: bold;">
-<label class="input-group-text" style="border-color: aqua; font-weight: bold;" for="inputGroupSelect01">Baños:</label>
-<asp:DropDownList runat="server" ID="baños" class="form-select" Style="width: 15px; border-color: aqua; font-weight: bold;">
-<asp:ListItem Text="1" />
-<asp:ListItem Text="2" />
-<asp:ListItem Text="3" />
-<asp:ListItem Text="4" />
-<asp:ListItem Text="5" />
-</asp:DropDownList>
-<asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="baños" ValidationGroup="validacionAgregar" runat="server" InitialValue="0" />
-</div>
-</div>
-<div class="row g-3">
-<div class="col-md-6" style="margin-left: 25px; font-weight: bold;">
-<label for="inputCity" class="form-label">Dirección</label>
-<asp:TextBox runat="server" type="text" class="form-control" ID="txtdireccion" Style="border-color: aqua;" />
-<asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="txtdireccion" ValidationGroup="validacionAgregar" runat="server" />
-</div>
-</div>
-<asp:UpdatePanel ID="Updatepanel2" runat="server" style="margin-left: 50px;">
-<ContentTemplate>
-<div class="row g-3">
-<div class="col-md-3" style="margin-left: 25px; font-weight: bold;">
-<label for="inputGroupSelect01" class="form-label">Codigo Postal</label>
-<asp:DropDownList runat="server" ID="codigo_postal" OnSelectedIndexChanged="codigo_postal_SelectedIndexChanged" AutoPostBack="true" class="form-select" Style="border-color: aqua">
-</asp:DropDownList>
-</div>
-<div class="col-md-8" style="margin-left: 25px; font-weight: bold;">
-<label for="inputGroupSelect01" class="form-label">Localidad</label>
-<asp:DropDownList runat="server" ID="localidad" class="form-select" Style="border-color: aqua">
-</asp:DropDownList>
-</div>
-</div>
-</ContentTemplate>
-</asp:UpdatePanel>
-</div>*/ %>
+            <br />
+            <div class="col-5">
+                <div class="row g-3">
+                    <div class="col-md-10" style="margin-left: 15px;">
+                        <label for="inputCity" class="form-label"><strong>Descripción:</strong></label>
+                        <asp:TextBox runat="server" TextMode="MultiLine" class="form-control" ID="txtdescripcion" Style="border-color: black; font-weight: bold; height: 100px; overflow: auto; white-space: pre-wrap; word-wrap: break-word;" />
+                        <asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="txtdescripcion" ValidationGroup="validacionAgregar" runat="server" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
             <div class="col-10 col-md-6">
                 <asp:UpdatePanel ID="Updatepanel1" runat="server" style="margin-left: 50px;">
@@ -107,50 +79,40 @@
                             <asp:TextBox runat="server" type="text" ID="txtImagenurl" CssClass="from-control" Style="width: 80%; border-color: black;" AutoPostBack="true" OnTextChanged="txtImagenurl_TextChanged" />
                             <asp:Button Text="Agregar imagenes" runat="server" type="submit" Style="width: 80%" class="btn btn-dark" ID="Btn_addimg" OnClick="Btn_addimg_Click" />
                         </div>
+
                         <br />
-                        <br />
-                        <center>
-                            <div id="carouselExample" class="carousel carousel-dark slide" style="height: 300px; width: 300px;">
-                                <div class="carousel-inner">
-                                    <asp:Repeater ID="rptImages" runat="server">
-                                        <ItemTemplate>
-                                            <div class='<%# Container.ItemIndex == 0 ? "carousel-item active" : "carousel-item" %>' style="margin-top: 40px;">
-                                                <img src='<%# Container.DataItem %>' alt="Imagen" id="imgselec" style="object-fit: scale-down; height: 25vh; width: 100%;"" />
-                                            </div>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+
+                        <div id="carouselExample" class="carousel carousel-dark slide" style="height: 300px; width: 300px;">
+                            <div class="carousel-inner">
+                                <asp:Repeater ID="rptImages" runat="server">
+                                    <ItemTemplate>
+                                        <div class='<%# Container.ItemIndex == 0 ? "carousel-item active" : "carousel-item" %>' style="margin-top: 40px;">
+                                            <img src='<%# Container.DataItem %>' alt="Imagen" id="imgselec" style="object-fit: scale-down; height: 25vh; width: 100%;" />
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </div>
-                        </center>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
-        </div>
+    </div>
 
-        <br />
 
-        <%/*  <div class="row g-3">
-<div class="input-group mb-3" style="height: 50px; width: 300px; border-color: aqua; margin-left: 25px; font-weight: bold;">
-<label class="input-group-text" style="border-color: aqua; font-weight: bold;" for="inputGroupSelect01">Tipo de Operación:</label>
-<asp:DropDownList runat="server" ID="tipoope" class="form-select" Style="width: 20px; border-color: aqua; font-weight: bold;">
-<asp:ListItem Text="Alquiler" />
-<asp:ListItem Text="Venta" />
-</asp:DropDownList>
-<asp:RequiredFieldValidator CssClass="Validacion" ErrorMessage="Campo obligatorio" ControlToValidate="tipoope" ValidationGroup="validacionAgregar" runat="server" InitialValue="" />
-</div>
-</div> */%>
 
-        <br />
 
-        <% /*  <div class="col-12" style="margin-left: 25px;">
+
+
+    <% /*  <div class="col-12" style="margin-left: 25px;">
 <div class="card border-info" style="width: 90%;">
 <div class="form-check" style="text-align: center;">
 <label for="inputState" class="form-label"><strong>Servicios:</strong></label>
@@ -187,10 +149,9 @@
 </div>
 </div> */ %>
 
-    
 
 
-        <%  /* <div class="col-12" style="margin-left: 25px;">
+    <%  /* <div class="col-12" style="margin-left: 25px;">
 <div class="card border-info" style="width: 90%;">
 <div class="form-check" style="text-align: center;">
 <label for="inputState" class="form-label"><strong>Opcion de pago:</strong></label>
@@ -221,8 +182,8 @@
 </center>
 </div>*/ %>
 
-        <div class="col-12" style="margin-left: 25px; color: black; padding-top: 30px">
-            <asp:Button Text="Agregar" runat="server" type="submit" class="btn btn-dark" ID="btnAgregar" OnClick="btnAgregar_Click" Visible="true" ValidationGroup="validacionAgregar" />
-            <asp:Button Text="Modificar" runat="server" type="submit" class="btn btn-dark" ID="btnModificar" OnClick="btnModificar_Click" Visible="false" />
-        </div>
+    <div class="col-12" style="margin-left: 25px; color: black; padding-top: 30px; margin-top: 0px;">
+        <asp:Button Text="Agregar" runat="server" type="submit" class="btn btn-dark" ID="btnAgregar" OnClick="btnAgregar_Click" Visible="true" ValidationGroup="validacionAgregar" />
+        <asp:Button Text="Modificar" runat="server" type="submit" class="btn btn-dark" ID="btnModificar" OnClick="btnModificar_Click" Visible="false" />
+    </div>
 </asp:Content>

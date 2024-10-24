@@ -34,30 +34,32 @@ namespace tp_integrador
                   //  lblDireccion.InnerText = "Ubicación: " + inmueble.ubicacion.Direccion + "," + inmueble.ubicacion.Localidad + "(" + inmueble.ubicacion.Codigo_Postal.ToString() + "), " + inmueble.ubicacion.Partido;
                     lblprecio.InnerText = "$" + articulos.precio_a.ToString();
                     lblcategoriaytipo.InnerText = articulos.categoria_a.nombre_categoria;
-                  //  lblambientes.Text = "Ambientes: " + inmueble.ambientes.ToString();
+                    lblmarca.InnerText = articulos.marca_a.Nombre.ToString();
+
+                    //  lblambientes.Text = "Ambientes: " + inmueble.ambientes.ToString();
                     //lblbaños.Text = "Baños: " + inmueble.baños.ToString();
 
-                  /*  checkagua.Enabled = false;
-                    Checkluz.Enabled = false;
-                    checkgas.Enabled = false;
-                    Checkcochera.Enabled = false;
-                    Checkaire.Enabled = false;
-                    Checkpatio.Enabled = false;
-                    Checkpavimento.Enabled = false;
-                    Checkcalefaccion.Enabled = false;
-                    Checkcloaca.Enabled = false;*/
+                    /*  checkagua.Enabled = false;
+                      Checkluz.Enabled = false;
+                      checkgas.Enabled = false;
+                      Checkcochera.Enabled = false;
+                      Checkaire.Enabled = false;
+                      Checkpatio.Enabled = false;
+                      Checkpavimento.Enabled = false;
+                      Checkcalefaccion.Enabled = false;
+                      Checkcloaca.Enabled = false;*/
 
-                   /* if (inmueble.aguacorriente == true) { checkagua.Checked = true; }
-                    if (inmueble.luz == true) { Checkluz.Checked = true; }
-                    if (inmueble.gasnatural == true) { checkgas.Checked = true; }
-                    if (inmueble.cochera == true) { Checkcochera.Checked = true; }
-                    if (inmueble.aireacondicionado == true) { Checkaire.Checked = true; }
-                    if (inmueble.patio == true) { Checkpatio.Checked = true; }
-                    if (inmueble.pavimento == true) { Checkpavimento.Checked = true; }
-                    if (inmueble.cloacas == true) { Checkcloaca.Checked = true; }
-                    if (inmueble.calefaccion == true) { Checkcalefaccion.Checked = true; }*/
+                    /* if (inmueble.aguacorriente == true) { checkagua.Checked = true; }
+                     if (inmueble.luz == true) { Checkluz.Checked = true; }
+                     if (inmueble.gasnatural == true) { checkgas.Checked = true; }
+                     if (inmueble.cochera == true) { Checkcochera.Checked = true; }
+                     if (inmueble.aireacondicionado == true) { Checkaire.Checked = true; }
+                     if (inmueble.patio == true) { Checkpatio.Checked = true; }
+                     if (inmueble.pavimento == true) { Checkpavimento.Checked = true; }
+                     if (inmueble.cloacas == true) { Checkcloaca.Checked = true; }
+                     if (inmueble.calefaccion == true) { Checkcalefaccion.Checked = true; }*/
 
-              
+
                 }
 
                 if (articulos == null)

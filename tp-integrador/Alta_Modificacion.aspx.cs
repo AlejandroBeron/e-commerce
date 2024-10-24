@@ -15,6 +15,7 @@ namespace tp_integrador
     {
         public List<Articulos> listaarticulos { get; set; }
         public List<Categoria> listacategoria { get; set; }
+        public List<Marca> listamarca { get; set; }
         public List<Articulos> listaPropia { get; set; }
 
         public Articulos articulos { get; set; }
@@ -23,6 +24,7 @@ namespace tp_integrador
 
         ArticulosNegocio ANegocio = new ArticulosNegocio();
         NegocioCategoria CNegocio = new NegocioCategoria();
+        NegocioMarca MNegocio = new NegocioMarca();
         // NegocioUbicacion UNegocio = new NegocioUbicacion();
 
         List<string> imagenUrls = new List<string>();
@@ -40,8 +42,21 @@ namespace tp_integrador
             int Id_I = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;
             articulos = listaarticulos.FirstOrDefault(i => i.Id_a == Id_I);
             listacategoria = CNegocio.listar();
+            listamarca = MNegocio.listar();
 
-            try
+            if (!IsPostBack)
+            {
+                tipoCodigo.DataSource = listacategoria;
+                tipoCodigo.DataTextField = "nombre_categoria"; // Propiedad que representa el texto visible
+                tipoCodigo.DataValueField = "codigo_categoria";   // Propiedad que representa el valor
+                tipoCodigo.DataBind();
+
+                tipoMarca.DataSource = listamarca;
+                tipoMarca.DataTextField = "Nombre"; // Propiedad que representa el texto visible
+                tipoMarca.DataValueField = "Codigo";   // Propiedad que representa el valor
+                tipoMarca.DataBind();
+            }
+                try
             {
 
                 if (articulos != null && !IsPostBack)
@@ -50,7 +65,12 @@ namespace tp_integrador
                     txtnombre.Text = articulos.nombre_a;
                     txtprecio.Text = articulos.precio_a.ToString();
                     txtdescripcion.Text = articulos.descripcion_a;
+                    txtmodelo.Text = articulos.codigo_a;
 
+                   
+
+                    tipoCodigo.SelectedValue = articulos.categoria_a.codigo_categoria.ToString(); 
+                    tipoMarca.SelectedValue = articulos.marca_a.Codigo.ToString();
 
                     btnModificar.Visible = true;
                     //condicion para q no se aparezca boton agregar
@@ -91,9 +111,11 @@ namespace tp_integrador
 
             articulos.nombre_a = txtnombre.Text;
             articulos.precio_a = decimal.Parse(txtprecio.Text);
-
+            articulos.categoria_a.codigo_categoria= int.Parse(tipoCodigo.SelectedValue);
+            articulos.marca_a.Codigo = int.Parse(tipoMarca.SelectedValue);
+            articulos.codigo_a= txtmodelo.Text;/// es el modelo
             articulos.descripcion_a = txtdescripcion.Text;
-
+            
             List<string> imagenUrls = Session["ImagenUrls"] as List<string> ?? new List<string>();
 
             // nuevo agregar acumulado
@@ -103,6 +125,7 @@ namespace tp_integrador
             listaarticulos = iManager.Listacompleta();
             listaarticulos = validarurl(listaarticulos);
             Session["listaarticulo"] = listaarticulos;
+            Response.Redirect("~/Default.aspx");
 
         }
 
@@ -164,15 +187,17 @@ namespace tp_integrador
         protected void btnModificar_Click(object sender, EventArgs e)
         {
             articulos.nombre_a = txtnombre.Text;
-
             articulos.precio_a = decimal.Parse(txtprecio.Text);
+            articulos.codigo_a = txtmodelo.Text;
             articulos.descripcion_a = txtdescripcion.Text;
-            List<string> imagenUrls = Session["ImagenUrls"] as List<string> ?? new List<string>();
+            articulos.categoria_a.codigo_categoria = int.Parse(tipoCodigo.SelectedValue);
+            articulos.marca_a.Codigo = int.Parse(tipoMarca.SelectedValue);
+            List<string> imagenUrls = Session["ImagenUrl"] as List<string> ?? new List<string>();
 
 
             ANegocio.modificar(articulos);
-            Session["ImagenUrls"] = null;
-            ArticulosNegocio iManager = new ArticulosNegocio();
+            Session["ImagenUrl"] = null; 
+             ArticulosNegocio iManager = new ArticulosNegocio();
             listaarticulos = iManager.Listacompleta();
             listaarticulos = validarurl(listaarticulos);
             Session["listaarticulo"] = listaarticulos;
@@ -254,4 +279,13 @@ namespace tp_integrador
 // string local = UNegocio.listarcodigopostal(int.Parse(codigo_postal.SelectedValue));
 // localidad.SelectedValue = local.ToString();
 */
-
+/*   <asp:ListItem Text="audio"/>
+                        <asp:ListItem Text="mouse y teclados"/> 
+                        <asp:ListItem Text="consolas"/> 
+                        <asp:ListItem Text="Celulares"/>
+                        <asp:ListItem Text="P47"/>
+                        <asp:ListItem Text="speaker"/> 
+                        <asp:ListItem Text="Sony"/> 
+                        <asp:ListItem Text="kanji"/>
+                        <asp:ListItem Text="genius"/> 
+*/

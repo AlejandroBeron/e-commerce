@@ -128,7 +128,7 @@ namespace Negocio
                 foreach (var imagen in imagenes)
                 {
 
-                    datos.setearconsulta("INSERT INTO Imagen (ImagenUrl, Id_Inmueble) VALUES ('" + imagen + "','" + productId + "' )");
+                    datos.setearconsulta("INSERT INTO Imagen (ImagenUrl, Id_articulo) VALUES ('" + imagen + "','" + productId + "' )");
                     //datos.setearparametro("@Id_inmueble", productId);
                     //datos.setearparametro("@Url",imagen);
                     datos.ejecutaraccion2();
