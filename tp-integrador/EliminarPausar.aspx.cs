@@ -53,9 +53,9 @@ namespace tp_integrador
         {
             ArticulosNegocio nego = new ArticulosNegocio();
             LinkButton btn = (LinkButton)sender;
-           // int id = .;
+            int id = articulos.Id_a;
 
-           // nego.Pausar(id, !inmueble.Pausa);
+            nego.Pausar(id, !articulos.Pausa);
             Response.Redirect("~/Default.aspx");
 
         }

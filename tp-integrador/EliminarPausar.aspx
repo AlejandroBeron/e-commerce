@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="font-weight: bold; color: darkblue; text-align: center; margin-top: 30px; font-size: 60px;"><u>Propiedad</u> <u>Seleccionada:</u></h1>
+    <h1 style="font-weight: bold; color: black; text-align: center; margin-top: 30px; font-size: 60px;"><u>Articulo</u> <u>Seleccionado:</u></h1>
     <div class="container">
         <center>
             <div class="row" style="margin-top: 10%; margin-bottom: 10%">
@@ -89,21 +89,21 @@
                     <%}
                         else
                         {%>
-                    <asp:LinkButton ID="btnPausar" runat="server" OnClick="btnPausar_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea pausar la Publicación?');" BorderStyle="Dotted" BorderColor="turquoise" Style="border-radius: 20px; margin-left: 40px;">
-                            <i class="bi bi-pause-fill text-info" style="font-size:50px;"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnPausar" runat="server" OnClick="btnPausar_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea pausar la Publicación?');" BorderStyle="Dotted" BorderColor="black" Style="border-radius: 20px; margin-left: 40px;">
+                            <i class="bi bi-pause-fill text-dark" style="font-size:50px;"></i></asp:LinkButton>
                     <%} %>
                 </div>
 
 
-                <div class="card border-primary" style="border-color: black; height: 600px; width: 350px">
+                <div class="card border-dark" style="border-color: black; height: 600px; width: 350px">
                     <center>
                         <div id="Datosdelarticulo">
-                            <div class="card-header text-center" style="font-size: 30px; text-align: center; color: midnightblue; border-block-color: black;">
+                            <div class="card-header text-center" style="font-size: 30px; text-align: center; color: black; border-block-color: black;">
                                 <p><strong id="lblprecio" runat="server"></strong></p>
                             </div>
                             <div class="card-body text-center" style="margin-bottom: 20px;">
                                 <div class="card-title">
-                                    <h2><strong id="lblnombre" runat="server" style="font-size: 25px; color: midnightblue; border-block-color: blue;"></strong></h2>
+                                    <h2><strong id="lblnombre" runat="server" style="font-size: 25px; color: black; border-block-color: black;"></strong></h2>
                                 </div>
                                 <p><strong id="lblcategoria" runat="server" style="font-size: 20px; color: black;"></strong></p>
                                 <p><strong id="lblDescripcion" runat="server" style="font-size: 16px; color: black;"></strong></p>

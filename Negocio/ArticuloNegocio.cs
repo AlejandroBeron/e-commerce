@@ -82,9 +82,9 @@ namespace Negocio
 
             try
             {
-                datos.setearconsulta("update Articulo set  pausa= @pausa where Id=@Id and estado=1");
+                datos.setearconsulta("update Articulo set  pausa= @Pausa where id_producto=@Id and estado=1");
 
-                datos.setearparametro("@pausa", pausa);
+                datos.setearparametro("@Pausa", pausa);
                 datos.setearparametro("@Id", id);
                 datos.ejecutaraccion();
 

@@ -17,11 +17,11 @@
             { %>
 
         <div class="col-12 col-md-6 col-lg-4 mb-2">
-           <div class="card border-dark"
-               
-                style="border-color:black; height: 500px; width: 350px; ">
-           
-              
+            <div class="card border-dark"
+                <%if (articulo.Pausa == false)
+                {%>style="border-color:black; height: 500px; width: 350px; ">
+                <%} %>
+
                 <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">
 
@@ -91,7 +91,7 @@
                 </div>
 
 
-               <center>
+                <center>
                     <div class="card-header text-center" style="font-size: 30px; color: black; border-block-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%: articulo.nombre_a %></strong></div>
                     <div class="card-body text-center" style="margin-bottom: 20px;">
                         <h5 class="card-title" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$<%:articulo.precio_a  %></h5>
@@ -116,6 +116,6 @@
         </div>
 
         <%
-            } %>
+            }%>
     </div>
 </asp:Content>
