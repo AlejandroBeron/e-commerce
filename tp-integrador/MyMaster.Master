@@ -66,13 +66,21 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
                             </li>
+                            <%if (Session["usuario"] == null)
+                                {%>
                             <li class="nav-item">
                                 <a class="nav-link" href="Login.aspx">Ingreso</a>
                             </li>
+                            <%}%>
                             <%if (Session["usuario"] != null)
                                 {%>
                             <li class="nav-item">
                                 <a class="nav-link" href="Alta_Modificacion.aspx">Agregar articulo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Default.aspx"></a>
+                                <asp:Button Text="Cerrar Sesion" ID="cerrar" OnClick="cerrar_Click" runat="server" />
+                                <span class="visually-hidden"></span>
                             </li>
                             <%}%>
                             <li class="nav-item dropdown">
