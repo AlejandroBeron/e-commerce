@@ -61,6 +61,15 @@ select * from Articulo
 select * from Usuario
 select * from Marcas
 
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 1;
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 2;
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 3;
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 4;
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 5;
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 11;
+UPDATE Articulo SET pausa = 0 WHERE id_producto = 12;
+
+
 select A.id_producto As Id, A.codigo As Codigo,A.nombre As Nombre ,A.descripcion As Descripcion ,M.descripcion Marca, C.Id As IdCategoria, M.id As IdMarca ,A.precio  As Precio FROM  Articulo A left JOIN  Marcas M on M.id= A.id_marca left JOIN Categoria C on C.Id= A.id_categoria
 
 select A.codigo,A.nombre,A.precio, A.id_producto , A.descripcion,M.descripcion Marca,A.id_marca idMarca,  A.id_categoria IdCategoria from Articulo A left JOIN Marcas M ON A.id_marca = M.id left JOIN Categoria C ON A.id_categoria = C.Id

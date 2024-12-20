@@ -19,8 +19,11 @@
         <div class="col-12 col-md-6 col-lg-4 mb-2">
             <div class="card border-dark"
                 <%if (articulo.Pausa == false)
-                {%>style="border-color:black; height: 500px; width: 350px; ">
+                {%>style="border-color:black; height: 500px; width: 350px; "
                 <%} %>
+               <%if (articulo.Pausa == true)
+                 {%>style="border-color: blue; height: 550px; width: 350px; opacity: 0.5;"
+                <%} %>>
 
                 <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">

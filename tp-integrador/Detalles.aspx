@@ -122,7 +122,7 @@
                     </center>
                 </div>
 
-                <div class="card border-dark" style="border-color: black; margin-left: 10px; height: 600px; width: 500px">
+                <div class="card border-dark" style="border-color: black; border-width: 4px; margin-left: 10px; height: 600px; width: 500px">
                     <center>
                         <div id="DatosArticulos">
                             <div class="card-header text-center" style="font-size: 25px; text-align: center; color: midnightblue; border-block-color: black;">

@@ -19,23 +19,23 @@ namespace tp_integrador
             Usuario usuario = new Usuario();
             NegocioUsuario usario = new NegocioUsuario();
             ArticulosNegocio arti = new ArticulosNegocio();
-           
-            listar = (List < Articulos >)Session["listaarticulo"];
-            int Id = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;          
+
+            listar = (List<Articulos>)Session["listaarticulo"];
+            int Id = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;
 
             articulos = listar.FirstOrDefault(i => i.Id_a == Id);
-            
+
             try
             {
 
-                if (articulos != null && !IsPostBack)
+                if (articulos != null && !IsPostBack && !articulos.Pausa)
                 {
                     lblnombre.InnerText = articulos.nombre_a;
                     lblDescripcion.InnerText = articulos.descripcion_a;
                     lblprecio.InnerText = "$" + articulos.precio_a;
                     lblcategoria.InnerText = articulos.categoria_a.nombre_categoria;
                     lblmarca.InnerText = articulos.codigo_a;
-               
+
                 }
                 if (articulos == null)
                 {
@@ -56,6 +56,8 @@ namespace tp_integrador
             int id = articulos.Id_a;
 
             nego.Pausar(id, !articulos.Pausa);
+
+     
             Response.Redirect("~/Default.aspx");
 
         }
