@@ -450,14 +450,19 @@ namespace Negocio
             }
         }
 
-        public void Eliminar(int Id)
+        public void Eliminar(Articulos articulo)
         {
             Acceso_Datos datos = new Acceso_Datos();
             try
             {
-                datos.setearconsulta("DELETE FROM Articulos WHERE Id = @Id ");
-                datos.setearparametro("@Id", Id);
+                datos.setearconsulta("delete from Imagen where Id_articulo= @Id_producto");
+                datos.setearparametro("@Id_producto", articulo.Id_a);
                 datos.ejecutaraccion();
+                datos.cerrarconexion();
+                datos.setearconsulta("delete from Articulo where id_producto= @Id_produc");
+               datos.setearparametro("@Id_produc", articulo.Id_a);
+                datos.ejecutaraccion();
+                datos.cerrarconexion();
 
 
 

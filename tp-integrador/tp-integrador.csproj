@@ -108,10 +108,12 @@
     <Content Include="CompraRealizada.aspx" />
     <Content Include="ConfirmarPublicaciones.aspx" />
     <Content Include="ConfirmarUsuario.aspx" />
+    <Content Include="Consultarealizada.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Detalles.aspx" />
     <Content Include="DetalleyConfirmar.aspx" />
     <Content Include="EliminarPausar.aspx" />
+    <Content Include="Emailenviado.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="FavoritosVacio.aspx" />
     <Content Include="FinalizarCompra.aspx" />
@@ -127,6 +129,7 @@
     <Content Include="SinPublicacionesAlta.aspx" />
     <Content Include="SinUsuarios.aspx" />
     <Content Include="Somos.aspx" />
+    <Content Include="Suscribirse.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
@@ -177,6 +180,13 @@
     <Compile Include="ConfirmarUsuario.aspx.designer.cs">
       <DependentUpon>ConfirmarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consultarealizada.aspx.cs">
+      <DependentUpon>Consultarealizada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultarealizada.aspx.designer.cs">
+      <DependentUpon>Consultarealizada.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -204,6 +214,13 @@
     </Compile>
     <Compile Include="EliminarPausar.aspx.designer.cs">
       <DependentUpon>EliminarPausar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Emailenviado.aspx.cs">
+      <DependentUpon>Emailenviado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Emailenviado.aspx.designer.cs">
+      <DependentUpon>Emailenviado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -324,6 +341,13 @@
     </Compile>
     <Compile Include="Somos.aspx.designer.cs">
       <DependentUpon>Somos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Suscribirse.aspx.cs">
+      <DependentUpon>Suscribirse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Suscribirse.aspx.designer.cs">
+      <DependentUpon>Suscribirse.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

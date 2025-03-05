@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="tp_integrador.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+      <style> .icon-move { transition: transform 0.5s; }
+ 
+        .icon-move:hover { transform: translateY(-10px); } 
+
+      </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -21,8 +28,8 @@
                 <%if (articulo.Pausa == false)
                 {%>style="border-color:black; height: 500px; width: 350px; "
                 <%} %>
-               <%if (articulo.Pausa == true)
-                 {%>style="border-color: blue; height: 550px; width: 350px; opacity: 0.5;"
+                <%if (articulo.Pausa == true)
+                {%>style="border-color: blue; height: 550px; width: 350px; opacity: 0.5;"
                 <%} %>>
 
                 <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
@@ -114,11 +121,46 @@
                         <%}%>
                     </div>
                 </center>
-
             </div>
         </div>
 
         <%
             }%>
     </div>
+    <br />
+    <br />
+    <div style="background-image: url('https://media.a24.com/p/128949ef736116e46e2e41e8111fe259/adjuntos/296/imagenes/009/402/0009402994/1200x675/smart/playstation-5-pro-todo-lo-que-debes-saber-la-nueva-consola-sony.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height: 20em; display: flex; flex-direction: column; justify-content: center">
+
+        <h2 style="font-size: 3em; text-align: center; padding: 20px; background: rgba(0,0,0,0.5); color:azure;">Promociones 💪</h2>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <center>
+       <a class="nav-link" href="Default.aspx"</a>
+    <img decoding="async" src="https://www.centrodecomercio.org.ar/fotos/2024/03/i34a2g8ej56fcb1h0d79.jpg" alt="">
+    </center>
+    <br />
+    <br /> 
+    <center>
+    <div class="card w-75 mb-3" style="border-color:black; border-width: 5px; ">
+  <div class="card-header w-75 mb-3">
+  <h5><strong>¿Te gustaría hacernos una consulta?</strong></h5> 
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" style="margin-top:-25px; display: flex; align-items: center; margin-left:455px;"><strong></strong>
+       <div  class="bi bi-envelope icon-move" style="font-size: 60px; margin-left:25px; margin-bottom: -30px;"
+
+       </div>
+
+    </h5>
+      <br /> 
+    <p class="card-text"></p> 
+       
+    <a href="Suscribirse.aspx" class="btn btn-dark"><strong>Consultar</strong></a>
+  </div>
+</div>
+    </center>
+      
 </asp:Content>

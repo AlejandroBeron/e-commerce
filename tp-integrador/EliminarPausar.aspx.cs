@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using System.Net;
 
 namespace tp_integrador
 {
@@ -13,6 +14,7 @@ namespace tp_integrador
     {
         public List<Articulos> listar { get; set; }
         public Articulos articulos { get; set; }
+        public List<Articulos> listaArticulo { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,7 +65,53 @@ namespace tp_integrador
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+            ArticulosNegocio nego = new ArticulosNegocio();
+            LinkButton btn = (LinkButton)sender;
+           
 
+            nego.Eliminar(articulos);
+
+            ArticulosNegocio iManager = new ArticulosNegocio();
+            listaArticulo = iManager.Listacompleta();
+            listaArticulo = validarurl(listaArticulo);
+            Session["listaarticulo"] = listaArticulo;
+
+            Response.Redirect("~/Default.aspx");
+
+        }
+        public List<Articulos> validarurl(List<Articulos> aux)
+        {
+            foreach (Articulos art in aux)
+            {
+                foreach (Imagen image in art.Imagenes)
+                {
+
+
+                    try
+                    {
+                        if (image.Nombre_imagen != "sinimagen")
+                        {
+                            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(image.Nombre_imagen);
+                            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                            if (response.StatusCode != HttpStatusCode.OK)
+                            {
+
+                                image.Nombre_imagen = "fallacarga";
+                            }
+                        }
+                    }
+                    catch (WebException)
+                    {
+
+                        image.Nombre_imagen = "fallacarga";
+
+                    }
+
+                }
+
+            }
+
+            return aux;
         }
 
     }

@@ -46,7 +46,7 @@
 
         <nav class="navbar bg-body-tertiary fixed-top" style="background-color: deepskyblue" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="Default.aspx">Bienvenido</a>
+                <a class="navbar-brand" href="Default.aspx"><strong>Electrotecno 🕹️​</strong></a>
                 <a href="carrito.aspx" class="nav-link" style="align-items: flex-end;">
                     <p style="text-align: right; font-size: 160%; color: white; margin-left: 1100px; margin-right: 20px;"><i class="bi bi-cart "></i></p>
                     <asp:Label Text="" ID="favoritos" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute  translate-middle" Style="top: 15px; margin-left: 1083px;" />
@@ -93,7 +93,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#">!Contactanos!</a></li>
+                                    <li><a class="dropdown-item" href="Suscribirse.aspx">!Contactanos!</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -140,7 +140,7 @@
         <br />
         <div class="text-center">
             <div class="autores" style="color: antiquewhite">
-                <p><strong>Autores: Macarena Casas - Alejandro Beron © 2024 </strong></p>
+                <p><strong>Autores: Macarena Casas - Alejandro Beron © 2025 </strong></p>
                 <br />
             </div>
         </div>
@@ -152,7 +152,7 @@
     <div class="container">
     <div class="row">
         <div class="col">
-            <div class="card" style="margin-left: 10px">
+            <div class="card border-dark" style="border-color: black; border-width: 4px; margin-left: 10px;">
                 <img src="https://http2.mlstatic.com/D_696556-MLA76551351741_052024-O.jpg" class="card-img-top" style=" width: 100%; height: 200px; object-fit: scale-down"; alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Play stations 4</h5>
@@ -162,8 +162,8 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
-                <img src="https://ar.oneclickstore.com/wp-content/uploads/2023/10/JBLT720BTBLKAM.jpg" class="card-img-top" style=" width: 100%; height: 200px; object-fit: scale-down"; alt="...">
+            <div class="card border-dark" style="border-color: black; border-width: 4px; margin-left: 10px;">
+                <img src="https://www.oscarbarbieri.com/pub/media/catalog/product/cache/7baadf0dec41407c7702efdbff940ecb/a/u/auri_jbl.jpg" class="card-img-top" style=" width: 100%; height: 200px; object-fit: scale-down"; alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Auriculares JBL</h5>
                     <p class="card-text">Tune 720 bluetooth – Negro</p>
@@ -172,7 +172,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card border-dark" style="border-color: black; border-width: 4px; margin-left: 10px;">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHL6b6CjgbkYsp1KlAo9g76JtPuLWlIVrvUw&s" class="card-img-top" style=" width: 100%; height: 200px; object-fit: scale-down"; alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Auriculares Inalámbricos</h5>
@@ -230,7 +230,7 @@
 
                 </div>
                 <div class="col-xs-12">
-                    <p style="color: white; padding-top: 20px;" class="text-white text-center"><strong>&copy; 2024 - Alejandro Beron </strong></p>
+                    <p style="color: white; padding-top: 20px;" class="text-white text-center"><strong>&copy; 2025 - Alejandro Beron </strong></p>
                 </div>
             </div>
         </div>
