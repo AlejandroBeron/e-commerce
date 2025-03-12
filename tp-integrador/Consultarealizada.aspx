@@ -23,7 +23,7 @@
                 <h2 scope="col" style="color: black; width: 600%;"><strong>¡MUCHAS GRACIAS POR ESCRIBIRNOS!</strong></h2>
             </div>
             <div>
-                <asp:Button ID="btnConsulta" runat="server" Text="Realizar otra Compra" OnClick="btnConsulta_Click" CommandArgument='<%# Eval("articulo.codigo_a") %>'
+                <asp:Button ID="btnConsulta" runat="server" Text="Inicio" OnClick="btnConsulta_Click" CommandArgument='<%# Eval("articulo.codigo_a") %>'
 
                     class="btn btn-dark" Style="font-weight: bold; border-color: white; font-size: 25px;" />
                 

@@ -22,15 +22,12 @@
 
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" style="height: 600px">
-                    <img src="https://cdn5.f-cdn.com/contestentries/879958/19924362/58216f8ace5bd_thumb900.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item  " style="height: 600px">
-                    <img src="https://thumbs.dreamstime.com/z/banner-de-venta-electr%C3%B3nica-con-dispositivos-electr%C3%B3nico-compra-y-entrega-en-l%C3%ADnea-cesta-compras-273419752.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item " style="height: 600px">
-                    <img src="https://cdn2.f-cdn.com/contestentries/879958/20652203/581cb502386f4_thumb900.jpg" class="d-block w-100" alt="...">
-                </div>
+                <div class="carousel-item active" style="height: 760px; background-image: url('https://blog.latam.playstation.com/tachyon/sites/3/2023/10/e08941a3d4b8ac23d60cbf6304e829e2e7a775b7.png'); background-size: cover; background-position: center;">
+             </div>
+                <div class="carousel-item " style="height: 760px; background-image: url('https://ocelot.com.mx/wp-content/uploads/2023/04/teclado-mecanico-switch-rojo.jpg'); background-size: cover; background-position: center;">
+             </div>
+                 <div class="carousel-item " style="height: 760px; background-image: url('https://www.apple.com/la/iphone-16/images/meta/iphone-16_overview__fcivqu9d5t6q_og.png'); background-size: cover; background-position: center;">
+             </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
