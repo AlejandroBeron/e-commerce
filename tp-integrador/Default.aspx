@@ -146,21 +146,43 @@
     <center>
     <div class="card w-75 mb-3" style="border-color:black; border-width: 5px; ">
   <div class="card-header w-75 mb-3">
-  <h5><strong>¿Te gustaría hacernos una consulta?</strong></h5> 
+  <h5><strong>¿Te gustaría recibir nuestras promociones?</strong></h5> 
   </div>
-  <div class="card-body">
-    <h5 class="card-title" style="margin-top:-25px; display: flex; align-items: center; margin-left:455px;"><strong></strong>
-       <div  class="bi bi-envelope icon-move" style="font-size: 60px; margin-left:25px; margin-bottom: -30px;"
+        <div> 
+  <div class="flex-container">
+        <center>
+    
+             <div style="display: flex; align-items: center; ">
+    <img style="margin-right: 100px;" alt="" width="300" height="200" src="https://pressover.news/wp-content/uploads/2021/07/famicom-portada-scaled.jpg">
 
+
+    <div id="formulario">
+        <label class="labe" for="nombre" style="font-size: 20px;"><strong>Nombre:</strong></label><br>
+        <input type="text" style="width: 100%; height: 30px;" required="required"><br><br>
+
+        <label class="labe" for="email" style="font-size: 20px;"><strong>Email:</strong></label><br>
+        <input type="email" style="width: 100%; height: 30px;" required="required"><br><br>
+    </div>
+     </div>
+      
+      <br /> 
+
+    <h5 class="card-title" style="margin-top:-25px; display: flex; align-items: center; margin-left:700px;"><strong></strong>
+       <div  class="bi bi-envelope icon-move" style="font-size: 100px; margin-left:100px; margin-bottom: -30px;">
        </div>
 
     </h5>
       <br /> 
     <p class="card-text"></p> 
-       
-    <a href="Suscribirse.aspx" class="btn btn-dark"><strong>Consultar</strong></a>
+      
+    <a href="Suscribirse.aspx" class="btn btn-dark"><strong>Suscribirse</strong></a>
+      <br />
+    </center>
+       </div>
+        <br />
   </div>
-</div>
+   </div>
+
     </center>
       
 </asp:Content>
