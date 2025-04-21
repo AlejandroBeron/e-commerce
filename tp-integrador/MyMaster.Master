@@ -1,4 +1,4 @@
-﻿<<<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.Master.cs" Inherits="tp_integrador.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.Master.cs" Inherits="tp_integrador.Site1" %>
 
 
 <!DOCTYPE html>
@@ -17,8 +17,48 @@
 
 
     <form id="form1" runat="server" style="min-height: 800px;">
+        <div class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="Default.aspx"><strong>Electrotecno 🕹️​</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <div class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <div class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Somos.aspx"><strong>¿Quienes somos?</strong></a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link active" href="Suscribirse.aspx"><strong>!Contactanos!</strong></a>
+        </div>
+         <div class="input-group mb-3" style="height: 1px; width: 135px; border-color: black; margin-left: 15px; font-weight: bold;">
+           <asp:DropDownList runat="server" ID="tipoCodigo" AutoPostBack="true" OnSelectedIndexChanged="BuscarCat" class="form-select" Style="width: 20px; border-color: black; font-weight: bold;">
+             <asp:ListItem  Text="" Value="" Selected="True" Style="font-weight: bold;"></asp:ListItem>
+           </asp:DropDownList>
+        </div>
+        
+        <div class="nav-item">
+          <a class="nav-link active" aria-disabled="true" href="https://web.whatsapp.com/send?phone=5491136482023&amp;text=Hola, estaba viendo tu pagina y quiero realizar una consulta."><strong>Consultas </strong><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="mx-auto d-flex" role="search" data-bs-theme="dark">
+         <center>
+                <asp:Button ID="Button1" Text="Buscar" OnClick="btnBuscar_Click" runat="server" Style="visibility: hidden" />
+                <asp:TextBox runat="server" ID="TextBox1" class="p-3 text-ligth bg-ligth border border-ligth-subtle rounded-3" placeholder="" aria-label="search" Style="width: 290px; height: 45px; margin-left: 120px; border-color: aliceblue; color: white;"></asp:TextBox>
+                <asp:Button runat="server" Text="Buscar" OnClick="btnBuscar_Click" ID="Button2" class="btn btn-dark" Style="border-color: aliceblue; color: white;" UseSubmitBehavior="false"></asp:Button>
+            </center>
+      </div>
+        <a href="carrito.aspx" class="nav-link" style="align-items: flex-end;">
+                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 100px; margin-right: 20px;"><i class="bi bi-cart "></i></p>
+          <asp:Label Text="" ID="favoritos" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute  translate-middle" Style="top: 15px; margin-left: 83px;" />
+        </a>
+    </div>
+  </div>
+</div>
+     
         <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("Default.aspx"))
             {%>
+
 
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -38,87 +78,52 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+         
+       
 
-        <% } %>
 
-        <nav class="navbar bg-body-tertiary fixed-top" style="background-color: deepskyblue" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="Default.aspx"><strong>Electrotecno 🕹️​</strong></a>
-                <a href="carrito.aspx" class="nav-link" style="align-items: flex-end;">
-                    <p style="text-align: right; font-size: 160%; color: white; margin-left: 1100px; margin-right: 20px;"><i class="bi bi-cart "></i></p>
-                    <asp:Label Text="" ID="favoritos" runat="server" CssClass="badge rounded-pill bg-secondary position-absolute  translate-middle" Style="top: 15px; margin-left: 1083px;" />
-                    <span class="visually-hidden">Inmuebles en Favoritos</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Opciones</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
-                            </li>
-                            <%if (Session["usuario"] == null)
-                                {%>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Login.aspx">Ingreso</a>
-                            </li>
-                            <%}%>
-                            <%if (Session["usuario"] != null)
-                                {%>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Alta_Modificacion.aspx">Agregar articulo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Default.aspx"></a>
-                                <asp:Button Text="Cerrar Sesion" ID="cerrar" OnClick="cerrar_Click" runat="server" />
-                                <span class="visually-hidden"></span>
-                            </li>
-                            <%}%>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="carrito.aspx">Carrito</a></li>
-                                    <li><a class="dropdown-item" href="Somos.aspx">¿Quienes somos?</a></li>
-
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="Suscribirse.aspx">!Contactanos!</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </nav>
+        
         <div class="text-center">
-            <div class="Redes_sociales" style="background-color: black; color: antiquewhite; font-size: 160%; height: 40px;">
-                <h5><strong>¡Todos los dias tenemos 3 y 6 cuotas sin interes!</strong></h5>
+            <div class="Redes_sociales" style="background-color: black; color: antiquewhite; font-size: 180%; height: 40px;">
+                <h5><strong>¡Todos los dias tenemos 3 y 6 cuotas sin interes!</strong></h5>  
             </div>
         </div>
-        <div class="mx-auto d-flex" role="search" style="background-color: black" data-bs-theme="dark">
-            <center>
-                <asp:Button ID="Button1" Text="Buscar" OnClick="btnBuscar_Click" runat="server" Style="visibility: hidden" />
-                <asp:TextBox runat="server" ID="TextBox1" class="p-3 text-ligth bg-ligth border border-ligth-subtle rounded-3" placeholder="..." aria-label="search" Style="width: 750px; margin-left: 200px; border-color: aliceblue; color: white;"></asp:TextBox>
-                <asp:Button runat="server" Text="Buscar" OnClick="btnBuscar_Click" ID="Button2" class="btn btn-outline-dark p-3 text-ligth" Style="border-color: aliceblue; color: white;" UseSubmitBehavior="false"></asp:Button>
-            </center>
-        </div>
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <% } %>
+       <%  if (Session["usuario"] == null) {%>
+        <div class="nav-item" style="background-color: black; color: black;">
+                  <a class="nav-link" style="background-color: black; color: antiquewhite; border-left: 4px solid black; border-style: solid; font-size: 120%; height: 30px; margin-left: 10px;" href="Login.aspx"><stron>Ingresar </stron><i class="bi bi-person-fill"></i></a>
+             </div>  
+    
+                            <%}%>
+        
+           
+          <%else
+   
+              {%>
+        <div class="nav-item active" style="background-color: black; color: black; display: flex; align-items: center;">
+         <asp:Button Text="Cerrar Sesión" ID="cerrar"  OnClick="cerrar_Click" runat="server" 
+        style="background-color: black; color: antiquewhite; border-color: antiquewhite; border-width: 2px; font-size: 90%; height: 30px; margin-left: 10px;"/>
+    
+         <a class="nav-link" style="background-color: black; color: antiquewhite; border-left: 4px solid black; border-style: solid; font-size: 120%; height: 30px; margin-left: 20px;" href="Alta_Modificacion.aspx">
+        <strong>Agregar artículo</strong>
+         </a>
+      </div>
+ 
+                <div class="col" style="background-color: white; color: black; font-size: 160%; height: 40px; margin-left: 10px">
+                  <a><strong>Bienvenido: </strong><strong><%=usuario.nombre_u %></strong><i class="bi bi-person-check"  style="color: black; height: 30px; width: 40px"></i></a>
+                    </div>
+                 <%}%>  
+       
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-    </form>
+    
+   </form>
+
     <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("Default.aspx"))
         {%>
     <footer style="background-color: black">
         <hr />
+   
         <div class="text-center">
             <div class="Redes_sociales" style="color: antiquewhite">
                 <h5><strong>¡Seguinos en Nuestras Redes!</strong></h5>
@@ -143,6 +148,7 @@
         </div>
     </footer>
     <% } %>
+
     <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("Detalles.aspx"))
         {%>
 
@@ -233,6 +239,64 @@
         </div>
 
     </footer>
+    <% } %>
+
+    <% if (HttpContext.Current.Request.Url.AbsolutePath.EndsWith("DetallesCategoria.aspx"))
+        {%>
+
+      <br />
+      <br />
+    <footer style="background-color: black; padding-top: 20px;">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color: white;" class="h5 mb-3"><strong>Compra en Linea </strong></p>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="carrito.aspx" style="color: white;">Mi Carrito</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;">Mis Compras</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color: white;" class="h5 mb-3"><strong>Acerca de: </strong></p>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;">Promociones</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;">Metodos de Pago</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;">Consulta Envios</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color: white;" class="h5 mb-3"><strong>Ayuda </strong></p>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;">Politicas de Privacidad</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="Preguntas.aspx" style="color: white;">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;">Centro de Seguridad</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-3">
+                    <p style="color: white;" class="h5 mb-3"><strong>Atencion Al Cliente  </strong></p>
+                    <div class="mb-2">
+                        <a class="text-decoration-none" href="#" style="color: white;"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+
+                </div>
+                <div class="col-xs-12">
+                    <p style="color: white; padding-top: 20px;" class="text-white text-center"><strong>&copy; 2025 - Alejandro Beron </strong></p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
     <% } %>
 </body>
 </html>

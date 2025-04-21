@@ -7,14 +7,14 @@
 
             <%if (Session["usuario"] == null)
                 { %>
-            <div class="registro" style="background: lightblue; border-radius: 3%;">
+            <div class="registro" style="background: black; border-radius: 3%;">
 
-                <h1 style="text-align: center; padding: 10px 0 10px 0; border-bottom: 2px double grey;">Registrate:</h1>
+                <h1 style="text-align: center; padding: 10px 0 10px 0; border-bottom: 2px double grey; color:white">Registrate:</h1>
                 <center>
                     <div method="post" style="padding: 0 45px; box-sizing: border-box; left: 20px;">
-                        <div class="form-group" style="margin-top: 5%; left: 5px; color: black; font-size: 20px;">
+                        <div class="form-group" style="margin-top: 5%; left: 5px; color: white; font-size: 20px;">
                             <label>Email</label>
-                            <asp:TextBox Style="border: hidden; background-color: transparent; position: relative; border-bottom: 2px solid silver; margin-inline: 0px 0; text-align: left" ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" />
+                            <asp:TextBox Style="border: hidden; background-color: white; position: relative; border-bottom: 2px solid silver; margin-inline: 0px 0; text-align: left" ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" />
 
                             <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
                                 ValidationGroup="GroupRegistro" ErrorMessage="El email es obligatorio." CssClass="text-danger"
@@ -24,27 +24,27 @@
                                 ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" CssClass="text-danger"
                                 Display="Dynamic" />
                         </div>
-                        <label style="font-size: 20px;">Contraseña</label>
+                        <label style="font-size: 20px; color: white;">Contraseña</label>
                         <div class="contraseña" style="margin-top: 5%; left: 5px; color: black; font-size: 20px;">
 
-                            <asp:TextBox Style="border: hidden; background-color: transparent; position: relative; border-bottom: 2px solid silver; margin-inline: 0px 0;" runat="server" type="password" CssClass="form-control1" ID="txtpass" TextMode="password" />
+                            <asp:TextBox Style="border: hidden; background-color: white; position: relative; border-bottom: 2px solid silver; margin-inline: 0px 0;" runat="server" type="password" CssClass="form-control1" ID="txtpass" TextMode="password" />
 
                         </div>
-                        <label style="font-size: 20px;">Repetir contraseña</label>
+                        <label style="font-size: 20px; color: white;">Repetir contraseña</label>
 
                         <div class="rep-contraseña" style="margin-top: 5%; left: 5px; color: black; font-size: 20px;">
 
-                            <asp:TextBox Style="border: hidden; background-color: transparent; position: relative; border-bottom: 2px solid silver; margin-inline: 0px 0;" runat="server" type="password" CssClass="form-control1" ID="txtpass2" TextMode="password" />
+                            <asp:TextBox Style="border: hidden; background-color: white; position: relative; border-bottom: 2px solid silver; margin-inline: 0px 0;" runat="server" type="password" CssClass="form-control1" ID="txtpass2" TextMode="password" />
 
                         </div>
                         <br />
-                        <div class="mx-auto d-flex">
+                        <div class="mx-auto d-flex" style="font-size: 15px; color:white;">
                             <asp:Label ID="lblLength" runat="server" Text="* Más de 6 caracteres"></asp:Label><br />
                         </div>
-                        <div class="mx-auto d-flex">
+                        <div class="mx-auto d-flex" style="font-size: 15px; color:white;">
                             <asp:Label ID="lblUpperCase" runat="server" Text="* Mínimo 1 mayúscula"></asp:Label><br />
                         </div>
-                        <div class="mx-auto d-flex">
+                        <div class="mx-auto d-flex" style="font-size: 15px; color:white;">
                             <asp:Label ID="lblNumber" runat="server" Text="* Mínimo 1 número"></asp:Label><br />
                         </div>
 
@@ -57,8 +57,8 @@
             </div>
             <div class="btn " style="width: 100%; margin-top: 15px; display: flex; justify-content: center; align-items: center;">
 
-                <asp:Button Text="Registrarse" CssClass="btn btn-reg" ID="btnregistrarse" OnClick="btnregistrarse_Click" runat="server" Style="padding: 7px 10px; background-color: #5488a3; color: #fff; border-radius: 25px; cursor: pointer; transition: all 300ms ease;" />
-                <asp:Button ID="cerrarbtn" Text="Cerrar" runat="server" OnClick="cerrarbtn_Click" Style="margin-left: 20px; padding: 7px 10px; background-color: #5488a3; color: #fff; border-radius: 25px; cursor: pointer; transition: all 300ms ease;" />
+                <asp:Button Text="Registrarse" CssClass="btn btn-reg" ID="btnregistrarse" OnClick="btnregistrarse_Click" runat="server" Style="padding: 7px 10px; background-color: white; color: black; border-radius: 25px; cursor: pointer; transition: all 300ms ease;" />
+                <asp:Button ID="cerrarbtn" Text="Cerrar" runat="server" OnClick="cerrarbtn_Click" Style="margin-left: 20px; padding: 7px 10px; background-color: white; color: black; border-radius: 25px; cursor: pointer; transition: all 300ms ease;" />
             </div>
             <%} %>
             <%if (Session["usuario"] != null)

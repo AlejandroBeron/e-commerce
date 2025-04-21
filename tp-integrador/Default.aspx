@@ -1,188 +1,390 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="tp_integrador.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-      <style> .icon-move { transition: transform 0.5s; }
- 
-        .icon-move:hover { transform: translateY(-10px); } 
+    <style>
+        .icon-move {
+            transition: transform 0.5s;
+        }
 
-      </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            .icon-move:hover {
+                transform: translateY(-10px);
+            }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
+    <br />
+    <center>
+        <h1><u><strong>Categorias</strong></u></h1>
+    </center>
 
-    <% if ((List<Dominio.Articulos>)Session["articulofiltrados"] != null)
-        {
-            listaArticulo = (List<Dominio.Articulos>)Session["articulofiltrados"];
-            Session.Remove("articulofiltrados");
-        }%>
+    <br />
+    <div>
+        <div>
+          <div id="carouselCategorias" class="carousel slide border border-dark p-3">
+    <div class="carousel-inner">
+        <% int contador = 0; %>
+        <% int grupo = 0; %>
 
+        <% foreach (Dominio.Categoria categoria in listaCategorias) { %>
+            <% if (contador % 5 == 0) { %> <!-- Crear una nueva "carousel-item" cada 6 tarjetas -->
+                <div class="carousel-item <% if (grupo == 0) { %> active <% } %>">
+                    <div class="d-flex justify-content-center flex-wrap">
+            <% } %>
 
-    <div class="row" style="margin-top: 100px; margin-left: 25px; margin-right: 25px; margin-bottom: 40px;">
-
-        <% foreach (Dominio.Articulos articulo in listaArticulo)
-            { %>
-
-        <div class="col-12 col-md-6 col-lg-4 mb-2">
-            <div class="card border-dark"
-                <%if (articulo.Pausa == false)
-                {%>style="border-color:black; height: 500px; width: 350px; "
-                <%} %>
-                <%if (articulo.Pausa == true)
-                {%>style="border-color: blue; height: 550px; width: 350px; opacity: 0.5;"
-                <%} %>>
-
-                <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
-                    <div class="carousel-indicators">
-
-
-                        <% for (int i = 0; i < articulo.Imagenes.Count(); i++)
-                            { %>
-                        <button type="button" id="independtiente" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide-to="<%= i %>"
-                            <% if (i == 0)
-                            { %>
-                            class="active" aria-current="true" <% } %> aria-label="Slide <%= i + 1 %>">
-                        </button>
-                        <% } %>
-                    </div>
-                    <div class="carousel-inner">
-                        <%
-                            bool first = true;
-                            for (int i = 0; i < articulo.Imagenes.Count(); i++)
-                            {
-                                if (first)
-                                {
-                                    first = false; %>
-                        <div class="carousel-item active">
-
-                            <% if (articulo.Imagenes[i].Nombre_imagen == "fallacarga")
-                                { %>
-                            <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
-                            <% }
-                                else if (articulo.Imagenes[i].Nombre_imagen == "sinimagen")
-                                { %>
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
-                            <% }
-                                else
-                                { %>
-                            <img src="<%: articulo.Imagenes[i] %>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
-                            <% }  %>
-                        </div>
-                        <%}
-                            else
-                            {%>
-                        <div class="carousel-item ">
-                            <% if (articulo.Imagenes[0].Nombre_imagen == "fallacarga")
-                                { %>
-                            <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
-                            <% }
-                                else if (articulo.Imagenes[0].Nombre_imagen == "sinimagen")
-                                { %>
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" class="d-block w-100" style="object-fit: fill; height: 300px; width: 400px;" alt="">
-                            <% }
-                                else
-                                { %>
-                            <img src=" <%: articulo.Imagenes[i]%>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
-                            <% } %>
-                        </div>
-                        <% }
-                            }%>
-                    </div>
-
-
-                    <button class="carousel-control-prev" id="ant" type="button" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-                        <span class="visually-hidden">Prev</span>
-                    </button>
-                    <button class="carousel-control-next" id="sig" type="button" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-
-
-                <center>
-                    <div class="card-header text-center" style="font-size: 30px; color: black; border-block-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%: articulo.nombre_a %></strong></div>
-                    <div class="card-body text-center" style="margin-bottom: 20px;">
-                        <h5 class="card-title" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$<%:articulo.precio_a  %></h5>
-                        <p class="card-text" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%:articulo.categoria_a.nombre_categoria%></strong></p>
-                        <a href="<%: ResolveUrl("~/Detalles.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark icon-move" style="font-weight: bold; border-color: black;" title="Detalles">Ver</a>
-                        <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == true)
-                            { %>
-                        <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Modificar</a>
-                        <a href="<%: ResolveUrl("~/EliminarPausar.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Eliminar/Pausar</a>
-                        <%} %>
-
-                        <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == false)
-                            {%>
-                        <a href="Default.aspx?id=<%:articulo.Id_a %>" class="btn btn-dark" usesubmitbehavior="false" commandargument='<%=articulo.Id_a%>'
-                            style="font-weight: bold; border-color: black;">Agregar a Favoritos <i class="bi bi-star-fill "></i></a>
-                        <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" ) %>" class="btn btn-dark" style="font-weight: bold; border-color: black; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
-                        <%}%>
-                    </div>
+            <div class="card border-dark mx-2" style="width: 250px; height: 250px; border-width: 3px;">
+                <p class="card-text text-center"><strong></strong></p>
+                <img src="<%:categoria.ImagenesCat %>" class="d-block w-100" style="object-fit: scale-down; height: 150px;" alt="">
+                <center> 
+                    <a href="<%: ResolveUrl("~/DetallesCategoria.aspx?id=" + categoria.codigo_categoria) %>" class="btn btn-dark" style="width: 130px; height: 30px; font-size: 12px;">
+                        <strong><%:categoria.nombre_categoria%></strong>
+                    </a>
                 </center>
             </div>
-        </div>
 
-        <%
-            }%>
-    </div>
-    <br />
-    <br />
-    <div style="background-image: url('https://media.a24.com/p/128949ef736116e46e2e41e8111fe259/adjuntos/296/imagenes/009/402/0009402994/1200x675/smart/playstation-5-pro-todo-lo-que-debes-saber-la-nueva-consola-sony.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height: 20em; display: flex; flex-direction: column; justify-content: center">
+            <% contador++; %>
 
-        <h2 style="font-size: 3em; text-align: center; padding: 20px; background: rgba(0,0,0,0.5); color:azure;">Promociones 💪</h2>
+            <% if (contador % 5 == 0 || contador == listaCategorias.Count) { %> 
+                    </div>
+                </div>
+                <% grupo++; %> <!-- Incrementamos el grupo -->
+            <% } %>
+        <% } %>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <center>
-       <a class="nav-link" href="Default.aspx"</a>
-    <img decoding="async" src="https://www.centrodecomercio.org.ar/fotos/2024/03/i34a2g8ej56fcb1h0d79.jpg" alt="">
-    </center>
-    <br />
-    <br /> 
-    <center>
-    <div class="card w-75 mb-3" style="border-color:black; border-width: 5px; ">
-  <div class="card-header w-75 mb-3">
-  <h5><strong>¿Te gustaría recibir nuestras promociones?</strong></h5> 
-  </div>
-        <div> 
-  <div class="flex-container">
-        <center>
+
     
-             <div style="display: flex; align-items: center; ">
-    <img style="margin-right: 100px;" alt="" width="300" height="200" src="https://pressover.news/wp-content/uploads/2021/07/famicom-portada-scaled.jpg">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCategorias" data-bs-slide="prev"
+        style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%);">
+        <span class="carousel-control-prev-icon" style="filter: invert(1);"></span>
+    </button>
+
+   
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselCategorias" data-bs-slide="next"
+        style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%);">
+        <span class="carousel-control-next-icon" style="filter: invert(1);"></span>
+    </button>
+</div>
+
+            <br />
+            <br />
+
+            <% if ((List<Dominio.Articulos>)Session["articulofiltrados"] != null)
+                {
+                    listaArticulo = (List<Dominio.Articulos>)Session["articulofiltrados"];
+                    Session.Remove("articulofiltrados");
+                }%>
+
+            <div class="row" style="margin-top: 100px; margin-left: 25px; margin-right: 25px; margin-bottom: 40px;">
+
+                <% foreach (Dominio.Articulos articulo in listaArticulo)
+                    { %>
+                <%if (articulo.categoria_a.nombre_categoria != "TV")
+                    {%>
+                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                    <div class="card border-dark" style="border-width: 3px; height: 450px; width: 400px;"
+                        <%if (articulo.Pausa == false)
+                        {%>style="border-color:black; height: 500px; width: 350px;"
+                        <%} %>
+                        <%if (articulo.Pausa == true)
+                        {%>style="border-color: blue; height: 550px; width: 350px; opacity: 0.5;"
+                        <%} %>>
+
+                        <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
+                            <div class="carousel-indicators">
 
 
-    <div id="formulario">
-        <label class="labe" for="nombre" style="font-size: 20px;"><strong>Nombre:</strong></label><br>
-        <input type="text" style="width: 100%; height: 30px;" required="required"><br><br>
+                                <% for (int i = 0; i < articulo.Imagenes.Count(); i++)
+                                    { %>
+                                <button type="button" id="independtiente" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide-to="<%= i %>"
+                                    <% if (i == 0)
+                                    { %>
+                                    class="active" aria-current="true" <% } %> aria-label="Slide <%= i + 1 %>">
+                                </button>
+                                <% } %>
+                            </div>
+                            <div class="carousel-inner">
+                                <%
+                                    bool first = true;
+                                    for (int i = 0; i < articulo.Imagenes.Count(); i++)
+                                    {
+                                        if (first)
+                                        {
+                                            first = false; %>
+                                <div class="carousel-item active">
 
-        <label class="labe" for="email" style="font-size: 20px;"><strong>Email:</strong></label><br>
-        <input type="email" style="width: 100%; height: 30px;" required="required"><br><br>
+                                    <% if (articulo.Imagenes[i].Nombre_imagen == "fallacarga")
+                                        { %>
+                                    <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
+                                    <% }
+                                        else if (articulo.Imagenes[i].Nombre_imagen == "sinimagen")
+                                        { %>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                                    <% }
+                                        else
+                                        { %>
+                                    <img src="<%: articulo.Imagenes[i] %>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
+                                    <% }  %>
+                                </div>
+                                <%}
+                                    else
+                                    {%>
+                                <div class="carousel-item ">
+                                    <% if (articulo.Imagenes[0].Nombre_imagen == "fallacarga")
+                                        { %>
+                                    <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                                    <% }
+                                        else if (articulo.Imagenes[0].Nombre_imagen == "sinimagen")
+                                        { %>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" class="d-block w-100" style="object-fit: fill; height: 300px; width: 400px;" alt="">
+                                    <% }
+                                        else
+                                        { %>
+                                    <img src=" <%: articulo.Imagenes[i]%>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
+                                    <% } %>
+                                </div>
+                                <% }
+                                    }%>
+                            </div>
+
+
+                            <button class="carousel-control-prev" id="ant" type="button" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                                <span class="visually-hidden">Prev</span>
+                            </button>
+                            <button class="carousel-control-next" id="sig" type="button" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+
+                        <center>
+                            <div class="card-header text-center" style="font-size: 30px; color: black; border-block-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%: articulo.nombre_a %></strong></div>
+                            <div class="card-body text-center" style="margin-bottom: 20px;">
+                                <h5 class="card-title" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$<%:articulo.precio_a  %></h5>
+                                <p class="card-text" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%:articulo.categoria_a.nombre_categoria%></strong></p>
+                                <a href="<%: ResolveUrl("~/Detalles.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark icon-move" style="font-weight: bold; border-color: black;" title="Detalles">Ver</a>
+                                <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == true)
+                                    { %>
+                                <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Modificar</a>
+                                <a href="<%: ResolveUrl("~/EliminarPausar.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Eliminar/Pausar</a>
+                                <%} %>
+
+                                <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == false)
+                                    {%>
+                                <a href="Default.aspx?id=<%:articulo.Id_a %>" class="btn btn-dark" usesubmitbehavior="false" commandargument='<%=articulo.Id_a%>'
+                                    style="font-weight: bold; border-color: black;">Agregar a Favoritos <i class="bi bi-star-fill "></i></a>
+                                <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" ) %>" class="btn btn-dark" style="font-weight: bold; border-color: black; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
+                                <%}%>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <%} %>
+                <%
+                    }%>
+            </div>
+            <br />
+            <br />
+            <div style="background-image: url('https://media.a24.com/p/128949ef736116e46e2e41e8111fe259/adjuntos/296/imagenes/009/402/0009402994/1200x675/smart/playstation-5-pro-todo-lo-que-debes-saber-la-nueva-consola-sony.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height: 20em; display: flex; flex-direction: column; justify-content: center">
+
+                <h2 style="font-size: 3em; text-align: center; padding: 20px; background: rgba(0,0,0,0.5); color: azure;">Promociones 💪</h2>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <center>
+                <a class="nav-link"></a>
+                <img decoding="async" src="https://www.centrodecomercio.org.ar/fotos/2024/03/i34a2g8ej56fcb1h0d79.jpg" alt="">
+            </center>
+            <br />
+            <br />
+            <br />
+            <center>
+                <div class="card w-75 mb-3" style="border-color: black; border-width: 5px;">
+                    <div class="card-header w-75 mb-3" style="margin-left: 110px;">
+                        <h5><strong>¿Te gustaría recibir nuestras promociones?</strong></h5>
+                    </div>
+
+                    <div class="row">
+                        <center>
+
+                            <div class="col" style="display: flex; align-items: center; margin-left: 90px;">
+                                <img style="margin-right: 100px;" alt="" width="300" height="200" src="https://pressover.news/wp-content/uploads/2021/07/famicom-portada-scaled.jpg">
+
+
+                                <div id="formulario">
+                                    <form action="https://formsubmit.co/ale.frecuenci@gmail.com" method="POST">
+                                        <label class="labe" for="nombrePro" style="font-size: 20px;"><strong>Nombre:</strong></label><br>
+                                        <asp:TextBox ID="txtNombrePro" runat="server" Style="width: 100%; height: 30px;"></asp:TextBox><br>
+                                        <br>
+
+                                        <label class="labe" for="emailPro" style="font-size: 20px;"><strong>Email:</strong></label><br>
+                                        <asp:TextBox ID="TextEmailPro" runat="server" Style="width: 100%; height: 30px;"></asp:TextBox><br>
+                                        <br>
+                                    </form>
+                                </div>
+
+                                <br />
+
+                                <div class="col" style="margin-top: -25px; display: flex; align-items: center; margin-left: 50px;">
+                                    <strong></strong>
+                                    <div class="bi bi-envelope icon-move" style="font-size: 100px; margin-left: 100px; margin-bottom: -30px;">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <br />
+                            <p class="card-text"></p>
+
+                            <asp:Button Text="Suscribirse" type="submit" runat="server" class="btn btn-dark" ID="btnEnviar" OnClick="btnEnviar_Click"></asp:Button>
+                            <br />
+                        </center>
+                    </div>
+                    <br />
+
+                </div>
+                <br />
+            </center>
+
+            <div class="row" style="margin-top: 100px; margin-left: 25px; margin-right: 25px; display: flex; margin-bottom: 40px;">
+                <div class="col" style="display: flex; align-items: center; margin-left: 10px;">
+                    <img style="margin-right: 100px;" alt="" width="450" height="350" src="https://saturnohogar.vtexassets.com/arquivos/ids/158136/.1.jpg?v=638416130618570000">
+
+                    <% foreach (Dominio.Articulos articulo in listaArticulo)
+                        { %>
+                    <%if (articulo.categoria_a.nombre_categoria == "TV")
+                        {%>
+                    <div class="col-8 col-md-8 col-lg-8 mb-2" style="display: flex;">
+                        <div class="card border-dark" style="display: flex; border-width: 3px; height: 400px; width: 350px;"
+                            <%if (articulo.Pausa == false)
+                            {%>style="border-color:black; height: 500px; width: 350px; "
+                            <%} %>
+                            <%if (articulo.Pausa == true)
+                            {%>style="border-color: blue; height: 550px; width: 350px; opacity: 0.5;"
+                            <%} %>>
+
+                            <div id="carouselExampleDark_<%:articulo.Id_a%>" class="carousel carousel-dark slide">
+                                <div class="carousel-indicators">
+
+
+                                    <% for (int i = 0; i < articulo.Imagenes.Count(); i++)
+                                        { %>
+                                    <button type="button" id="independtiente" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide-to="<%= i %>"
+                                        <% if (i == 0)
+                                        { %>
+                                        class="active" aria-current="true" <% } %> aria-label="Slide <%= i + 1 %>">
+                                    </button>
+                                    <% } %>
+                                </div>
+                                <div class="carousel-inner">
+                                    <%
+                                        bool first = true;
+                                        for (int i = 0; i < articulo.Imagenes.Count(); i++)
+                                        {
+                                            if (first)
+                                            {
+                                                first = false; %>
+                                    <div class="carousel-item active">
+
+                                        <% if (articulo.Imagenes[i].Nombre_imagen == "fallacarga")
+                                            { %>
+                                        <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
+                                        <% }
+                                            else if (articulo.Imagenes[i].Nombre_imagen == "sinimagen")
+                                            { %>
+                                        <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                                        <% }
+                                            else
+                                            { %>
+                                        <img src="<%: articulo.Imagenes[i] %>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
+                                        <% }  %>
+                                    </div>
+                                    <%}
+                                        else
+                                        {%>
+                                    <div class="carousel-item ">
+                                        <% if (articulo.Imagenes[0].Nombre_imagen == "fallacarga")
+                                            { %>
+                                        <img src="https://previews.123rf.com/images/yoginta/yoginta2301/yoginta230100567/196853824-imagen-no-encontrada-ilustraci%C3%B3n-vectorial.jpg" class="d-block w-100" style="object-fit: fill; height: 250px; width: 350px;" alt="">
+                                        <% }
+                                            else if (articulo.Imagenes[0].Nombre_imagen == "sinimagen")
+                                            { %>
+                                        <img src="https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg" class="d-block w-100" style="object-fit: fill; height: 300px; width: 400px;" alt="">
+                                        <% }
+                                            else
+                                            { %>
+                                        <img src=" <%: articulo.Imagenes[i]%>" class="d-block w-100" style="object-fit: scale-down; height: 25vh; width: 100%;" alt="">
+                                        <% } %>
+                                    </div>
+
+                                    <% }
+                                        }%>
+                                </div>
+
+
+                                <button class="carousel-control-prev" id="ant" type="button" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                                    <span class="visually-hidden">Prev</span>
+                                </button>
+                                <button class="carousel-control-next" id="sig" type="button" data-bs-target="#carouselExampleDark_<%: articulo.Id_a %>" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+
+                            <center>
+                                <div class="card-header text-center" style="font-size: 30px; color: black; border-block-color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%: articulo.nombre_a %></strong></div>
+                                <div class="card-body text-center" style="margin-bottom: 20px;">
+                                    <h5 class="card-title" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">$<%:articulo.precio_a  %></h5>
+                                    <p class="card-text" style="font-size: 20px; color: black; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><strong><%:articulo.categoria_a.nombre_categoria%></strong></p>
+                                    <a href="<%: ResolveUrl("~/Detalles.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark icon-move" style="font-weight: bold; border-color: black;" title="Detalles">Ver</a>
+                                    <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == true)
+                                        { %>
+                                    <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Modificar</a>
+                                    <a href="<%: ResolveUrl("~/EliminarPausar.aspx?id=" + articulo.Id_a) %>" class="btn btn-dark" style="font-weight: bold; border-color: black;" title="modif">Eliminar/Pausar</a>
+                                    <%} %>
+
+                                    <%if (Session["usuario"] != null && verificarusuario(articulo.Id_a) == false)
+                                        {%>
+                                    <a href="Default.aspx?id=<%:articulo.Id_a %>" class="btn btn-dark" usesubmitbehavior="false" commandargument='<%=articulo.Id_a%>'
+                                        style="font-weight: bold; border-color: black;">Agregar a Favoritos <i class="bi bi-star-fill "></i></a>
+                                    <a href="<%: ResolveUrl("~/Alta_Modificacion.aspx?id=" ) %>" class="btn btn-dark" style="font-weight: bold; border-color: black; font-weight: bold;"><i class="bi bi-phone-vibrate "></i></a>
+                                    <%}%>
+                                </div>
+                            </center>
+                        </div>
+
+                        <%} %>
+                        <%
+                            }%>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+
+        </div>
     </div>
-     </div>
-      
-      <br /> 
 
-    <h5 class="card-title" style="margin-top:-25px; display: flex; align-items: center; margin-left:700px;"><strong></strong>
-       <div  class="bi bi-envelope icon-move" style="font-size: 100px; margin-left:100px; margin-bottom: -30px;">
-       </div>
-
-    </h5>
-      <br /> 
-    <p class="card-text"></p> 
-      
-    <a href="Suscribirse.aspx" class="btn btn-dark"><strong>Suscribirse</strong></a>
-      <br />
-    </center>
-       </div>
-        <br />
-  </div>
-   </div>
-
-    </center>
-      
 </asp:Content>

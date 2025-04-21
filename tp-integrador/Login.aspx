@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="btn " style="width: 100%; margin-top: 15px; display: flex; justify-content: center; align-items: center;">
-                <asp:Button ID="cerrarbtn" Text="Cerrar" runat="server" OnClick="cerrarbtn_Click" formnovalidate="true" Style="padding: 7px 10px; background-color: #5488a3; color: #fff; border-radius: 25px; cursor: pointer; transition: all 300ms ease;" />
+                <asp:Button ID="cerrarbtn" Text="Cerrar" runat="server" OnClick="cerrarbtn_Click" formnovalidate="true" Style="padding: 7px 10px; background-color: antiquewhite; color: black; border-radius: 25px; cursor: pointer; transition: all 300ms ease;" />
             </div>
         </div>
     </div>

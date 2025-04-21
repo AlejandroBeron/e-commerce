@@ -2,9 +2,12 @@ create database negocio
 go
 use negocio
 go
+ALTER TABLE Categoria ALTER COLUMN Nombre VARCHAR(50) NULL;
+
 create table Categoria(
 Id smallint identity (1,1) not null,
 Nombre varchar (50) not null unique,
+ImagenCategoria varchar (1000) not null,
 primary key (Id)
 )
 create table Marcas(
@@ -37,8 +40,18 @@ Usuario varchar (500) not null,
 Contraseña varchar (500) not null
 )
 go
-insert into Marcas values ('P47'), ('speaker'), ('Sony'), ('kanji'), ('genius')
-insert into Categoria values ('audio'),('mouse y teclados'), ('consolas'), ('celulares')
+
+UPDATE Categoria 
+SET ImagenCategoria = 'https://naldoar.vtexassets.com/arquivos/ids/180052-500-auto?v=638615877206230000&width=500&height=auto&aspect=true'
+WHERE Nombre = 'Notebook';
+
+DELETE FROM Categoria 
+WHERE Id = '12';
+
+
+
+insert into Marcas values  ('Samsung'), ('Motorola'), ('iPhone'),('P47'), ('speaker'), ('Sony'), ('kanji'), ('genius')
+insert into Categoria values ('TV'), ('Notebook'),('Monitores'),('audio'),('mouse y teclados'), ('consolas'), ('celulares')
 insert into Articulo values ('Auricular inalambrico', 'p47', 'Con bluetooth, luces multicolor, cable cargado y ranura tarjeta sd',10999, 1 ,1,1,1 ),
 ('Mouse Gammer', 'mg-3000', 'Inalambrico con luces de colores', 12118 ,5,2,1,1),
 ('Play station 5', 'Standar Edition', 'La Playstation 5 Standar Edition es la última generación de consolas de Sony',1275999, 3, 3,1,1),
@@ -57,9 +70,12 @@ go
 
 insert into Usuario  (Usuario,Contraseña) values ('admin', 'admin')
 
+
+
 select * from Articulo
 select * from Usuario
 select * from Marcas
+select * from Categoria
 
 UPDATE Articulo SET pausa = 0 WHERE id_producto = 1;
 UPDATE Articulo SET pausa = 0 WHERE id_producto = 2;

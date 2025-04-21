@@ -11,26 +11,17 @@ namespace tp_integrador
 {
 
 
-    public partial class WebForm1
+    public partial class EmailConsulta
     {
 
         /// <summary>
-        /// Control txtNombrePro.
+        /// Control txtmsjerror.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombrePro;
-
-        /// <summary>
-        /// Control TextEmailPro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextEmailPro;
+        protected global::System.Web.UI.WebControls.Label txtmsjerror;
 
         /// <summary>
         /// Control btnEnviar.

@@ -111,8 +111,10 @@
     <Content Include="Consultarealizada.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Detalles.aspx" />
+    <Content Include="DetallesCategoria.aspx" />
     <Content Include="DetalleyConfirmar.aspx" />
     <Content Include="EliminarPausar.aspx" />
+    <Content Include="EmailConsulta.aspx" />
     <Content Include="Emailenviado.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="FavoritosVacio.aspx" />
@@ -201,6 +203,13 @@
     <Compile Include="Detalles.aspx.designer.cs">
       <DependentUpon>Detalles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetallesCategoria.aspx.cs">
+      <DependentUpon>DetallesCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesCategoria.aspx.designer.cs">
+      <DependentUpon>DetallesCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleyConfirmar.aspx.cs">
       <DependentUpon>DetalleyConfirmar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +223,13 @@
     </Compile>
     <Compile Include="EliminarPausar.aspx.designer.cs">
       <DependentUpon>EliminarPausar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailConsulta.aspx.cs">
+      <DependentUpon>EmailConsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailConsulta.aspx.designer.cs">
+      <DependentUpon>EmailConsulta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Emailenviado.aspx.cs">
       <DependentUpon>Emailenviado.aspx</DependentUpon>

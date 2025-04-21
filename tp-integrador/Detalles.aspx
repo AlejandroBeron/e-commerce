@@ -130,7 +130,7 @@
                     </center>
                 </div>
 
-                <div class="card border-dark" style="border-color: black; border-width: 4px; margin-left: 10px; height: 600px; width: 500px">
+                <div class="card border-dark" style="border-color: black; border-width: 4px; margin-left: 10px; height: 600px; width: 540px">
                     <center>
                         <div id="DatosArticulos">
                             <div class="card-header text-center" style="font-size: 25px; text-align: center; color: midnightblue; border-block-color: black;">
@@ -156,10 +156,9 @@
 
                                 <label for="inputState" class="form-label" style="font-size: 25px; color: black; margin-top: 10px;"><strong>Descripción:</strong></label>
                                 <br />
-                                <br />
+                               
                                 <p><strong id="lblDescripcion" runat="server" style="font-size: 20px; color: black;"></strong></p>
                             </div>
-                            <img style="margin-right: 10px;" alt="" width="148" height="90" data-src="https://static.vecteezy.com/system/resources/thumbnails/006/081/808/small/50-percent-off-comic-book-style-art-special-offer-and-discount-vector.jpg" class="alignnone wp-image-1570 lazyloaded" src="https://static.vecteezy.com/system/resources/thumbnails/006/081/808/small/50-percent-off-comic-book-style-art-special-offer-and-discount-vector.jpg">
 
                             <br />
                             <br />
@@ -168,50 +167,16 @@
 
                                 <br />
                                 <a id="sendbtn" class="shortcode_wa_button btn btn-success text-white text-decoration-none" href="https://web.whatsapp.com/send?phone=5491136482023&amp;text=Hola, quiero realizar una consulta sobre este producto: <%:articulos.nombre_a%> de $<%:articulos.precio_a%>" style="margin-bottom: 2px; width: 50%;"><span>Realizá tu Consulta <i class="bi bi-whatsapp"></i></span></a>
-
-
-
-                                <%/*   <div class="form-check" style="text-align: center;">
-                    <label for="inputState" class="form-label" style="color: navy;"><strong>Servicio:</strong></label>
-
-                    <div class="mx-auto d-flex" style="justify-content: center;">
-                        <div class="form-check form-check-inline">
-                            <asp:CheckBox Text="Aire" runat="server" ID="Checkaire" Style="font-weight: bold; color: black;" />
-                        </div>
-                        <div class="form-check form-check-inline ">
-                            <asp:CheckBox Text="Patio" runat="server" ID="Checkpatio" Style="font-weight: bold; color: black;" />
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <asp:CheckBox Text="Luz" runat="server" ID="Checkluz" Style="font-weight: bold; color: black;" />
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <asp:CheckBox Text="Cochera" runat="server" ID="Checkcochera" Style="font-weight: bold; color: black;" />
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <asp:CheckBox Text="Cloaca" runat="server" ID="Checkcloaca" Style="font-weight: bold; color: black;" />
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row g-3">
-                        <div class="mx-auto d-flex" style="justify-content: center;">
-                            <div class="form-check form-check-inline">
-                                <asp:CheckBox Text="Pavimento" runat="server" ID="Checkpavimento" Style="font-weight: bold; color: black;" />
-                            </div>
-                            <div class="form-check form-check-inline ">
-                                <asp:CheckBox Text="Gas Natural" runat="server" ID="checkgas" Style="font-weight: bold; color: black;" />
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <asp:CheckBox runat="server" ID="Checkcalefaccion" Text="Calefacción" Style="font-weight: bold; color: black;" />
-
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <asp:CheckBox Text="Agua Corriente" runat="server" ID="checkagua" Style="font-weight: bold; color: black;" />
-                            </div>
-
-                        </div>
-                    </div>
-                </div>*/ %>
+                                <br />
+                                <br />
+                                <p class="sc-f6cfc5e5-5 bWRKiI"><strong>¡Nuestras promociones bancarias!</strong></p>
+                                  <div class="sc-f6cfc5e5-3 fAAgss"><img src="https://images.fravega.com/f300/11509c3fdfabb96a8fe2c3692726597b.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
+                                class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/4af8f5c4d9776dcbd6862adf577b3856.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
+                                    class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/d91d7904a85783a86377e30feb87e7ff.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
+                                        class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/54c0d769ece1b00f739360d6c900e4f9.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
+                                            class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/519814f3d2e261325c676a08e1f3b6c1.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
+                                                class="sc-f6cfc5e5-9 kBtWJP"></div>
+    
                             </div>
 
                         </div>

@@ -9,22 +9,26 @@ namespace Negocio
 {
     public class NegocioCategoria
     {
+        List<Articulos> listaarticulos = new List<Articulos>();
+        List<Categoria> listaCategorias = new List<Categoria>();
         public List<Categoria> listar()
         {
             List<Categoria> lista = new List<Categoria>();
             Acceso_Datos datos = new Acceso_Datos();
+            
 
             try
             {
 
-                datos.setearconsulta("select Id, Nombre from Categoria");
+                datos.setearconsulta("select Id, Nombre,ImagenCategoria from Categoria");
+                
                 datos.ejecutarlectura();
                 while (datos.lector.Read())
                 {
                     Categoria aux = new Categoria();
                     aux.nombre_categoria = (string)datos.lector["Nombre"];
                     aux.codigo_categoria = (short)datos.lector["Id"];
-
+                    aux.ImagenesCat = (string)datos.lector["ImagenCategoria"];
                     lista.Add(aux);
                 }
 
@@ -40,6 +44,41 @@ namespace Negocio
                 datos.cerrarconexion();
             }
         }
+        public Categoria categoriaid(int cod)
+        {
+            Categoria cateencontrada = new Categoria();
+            Acceso_Datos datos = new Acceso_Datos();
+
+
+            try
+            {
+
+                datos.setearconsulta("select Id, Nombre,ImagenCategoria from Categoria where Id=@Cod");
+                datos.setearparametro("@Cod", cod);
+                datos.ejecutarlectura();
+                while (datos.lector.Read())
+                {
+                    Categoria aux = new Categoria();
+                    aux.nombre_categoria = (string)datos.lector["Nombre"];
+                    aux.codigo_categoria = (short)datos.lector["Id"];
+                    aux.ImagenesCat = (string)datos.lector["ImagenCategoria"];
+                    cateencontrada = aux;
+                }
+
+                return cateencontrada;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarconexion();
+            }
+        }
+
+
 
         public void agregar(Categoria nueva_Categoria)
         {
@@ -100,6 +139,10 @@ namespace Negocio
             }
 
 
-        }
+       }
+
+        
+
+
     }
 }
