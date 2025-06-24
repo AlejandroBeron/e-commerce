@@ -11,12 +11,19 @@ namespace tp_integrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
+            Session.Remove("Carro");
             Response.Redirect("Default.aspx");
+        }
+
+        protected void BtnDescargar_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

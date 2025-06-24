@@ -76,11 +76,17 @@ namespace Negocio
             {
                 conexion.Open();
                 comando.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {
 
                 throw ex;
+            }
+            finally
+            {
+               
+                    conexion.Close();
             }
         }
         public void ejecutaraccion2()
@@ -122,6 +128,11 @@ namespace Negocio
         }
 
 
+        public void limpiar()
+        {
+          
+          comando.Parameters.Clear();
+        }
 
         public void cerrarconexion()
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
 using Dominio;
 using Negocio;
 
@@ -12,7 +13,9 @@ namespace tp_integrador
     public partial class Detalles : System.Web.UI.Page
     {
         public List<Articulos> listaarticulo { get; set; }
+        public List<Articulos> listaArticulo { get; set; }
         public Articulos articulos { get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,9 +24,14 @@ namespace tp_integrador
 
             Session["ReturnUrl"] = Request.Url.ToString();
 
+           
+
             listaarticulo = (List<Articulos>)Session["listaarticulo"];
             int id_a = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;
             articulos = listaarticulo.FirstOrDefault(i => i.Id_a == id_a);
+
+           
+           
             try
             {
 
@@ -31,34 +39,14 @@ namespace tp_integrador
                 {
                     lblnombre.InnerText = articulos.nombre_a;
                     lblDescripcion.InnerText = articulos.descripcion_a;
-                  //  lblDireccion.InnerText = "Ubicación: " + inmueble.ubicacion.Direccion + "," + inmueble.ubicacion.Localidad + "(" + inmueble.ubicacion.Codigo_Postal.ToString() + "), " + inmueble.ubicacion.Partido;
+                  
                     lblprecio.InnerText = "$" + articulos.precio_a.ToString();
                     lblcategoriaytipo.InnerText = articulos.categoria_a.nombre_categoria;
                     lblmarca.InnerText = articulos.marca_a.Nombre.ToString();
 
-                    //  lblambientes.Text = "Ambientes: " + inmueble.ambientes.ToString();
-                    //lblbaños.Text = "Baños: " + inmueble.baños.ToString();
+                   
 
-                    /*  checkagua.Enabled = false;
-                      Checkluz.Enabled = false;
-                      checkgas.Enabled = false;
-                      Checkcochera.Enabled = false;
-                      Checkaire.Enabled = false;
-                      Checkpatio.Enabled = false;
-                      Checkpavimento.Enabled = false;
-                      Checkcalefaccion.Enabled = false;
-                      Checkcloaca.Enabled = false;*/
-
-                    /* if (inmueble.aguacorriente == true) { checkagua.Checked = true; }
-                     if (inmueble.luz == true) { Checkluz.Checked = true; }
-                     if (inmueble.gasnatural == true) { checkgas.Checked = true; }
-                     if (inmueble.cochera == true) { Checkcochera.Checked = true; }
-                     if (inmueble.aireacondicionado == true) { Checkaire.Checked = true; }
-                     if (inmueble.patio == true) { Checkpatio.Checked = true; }
-                     if (inmueble.pavimento == true) { Checkpavimento.Checked = true; }
-                     if (inmueble.cloacas == true) { Checkcloaca.Checked = true; }
-                     if (inmueble.calefaccion == true) { Checkcalefaccion.Checked = true; }*/
-
+                    
 
                 }
 
@@ -75,6 +63,41 @@ namespace tp_integrador
                 Response.Redirect("~/Default.aspx");
                 throw ex;
             }
+        }
+
+        public List<Articulos> validarurl(List<Articulos> aux)
+        {
+            foreach (Articulos art in aux)
+            {
+                foreach (Imagen image in art.Imagenes)
+                {
+
+
+                    try
+                    {
+                        if (image.Nombre_imagen != "sinimagen")
+                        {
+                            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(image.Nombre_imagen);
+                            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                            if (response.StatusCode != HttpStatusCode.OK)
+                            {
+
+                                image.Nombre_imagen = "fallacarga";
+                            }
+                        }
+                    }
+                    catch (WebException)
+                    {
+
+                        image.Nombre_imagen = "fallacarga";
+
+                    }
+
+                }
+
+            }
+
+            return aux;
         }
         public bool verificarusuario(int id)
         {

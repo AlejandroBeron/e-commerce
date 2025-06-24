@@ -40,6 +40,40 @@ Usuario varchar (500) not null,
 Contraseña varchar (500) not null
 )
 go
+CREATE TABLE Compra (
+    OrdenC VARCHAR(200) NOT NULL PRIMARY KEY,
+    NombreC VARCHAR(500) NOT NULL,
+    ApellidoC VARCHAR(500) NOT NULL,
+    DniC VARCHAR(20) NOT NULL,
+    EmailC VARCHAR(200) NOT NULL
+);
+go
+
+CREATE TABLE DetalleCompra (
+    Id INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+    OrdenC VARCHAR(200) NOT NULL,
+    IdArticulo INT NOT NULL,
+    Cantidad INT NOT NULL,
+    PrecioUnitario DECIMAL(10,2) NOT NULL,
+    PrecioTotal AS (Cantidad * PrecioUnitario),
+    FOREIGN KEY (OrdenC) REFERENCES Compra(OrdenC),
+    FOREIGN KEY (IdArticulo) REFERENCES Articulo(id_producto)
+);
+go
+
+CREATE VIEW Factura AS
+SELECT 
+    c.NombreC, 
+    c.ApellidoC, 
+    c.DniC, 
+    c.EmailC, 
+    c.OrdenC, 
+    dc.IdArticulo, 
+    dc.Cantidad, 
+    dc.PrecioUnitario, 
+    dc.PrecioTotal
+FROM Compra c
+JOIN DetalleCompra dc ON c.Id = dc.IdCompra;
 
 UPDATE Categoria 
 SET ImagenCategoria = 'https://naldoar.vtexassets.com/arquivos/ids/180052-500-auto?v=638615877206230000&width=500&height=auto&aspect=true'
@@ -71,11 +105,16 @@ go
 insert into Usuario  (Usuario,Contraseña) values ('admin', 'admin')
 
 
+delete from Compra
 
-select * from Articulo
-select * from Usuario
+select * from Compra
+select * from DetalleCompra
 select * from Marcas
 select * from Categoria
+select * from DetalleCompra where OrdenC = '1EC79323'
+
+SELECT * FROM Articulo ORDER BY precio asc;
+
 
 UPDATE Articulo SET pausa = 0 WHERE id_producto = 1;
 UPDATE Articulo SET pausa = 0 WHERE id_producto = 2;

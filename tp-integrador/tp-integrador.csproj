@@ -102,20 +102,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Alta_Modificacion.aspx" />
+    <Content Include="Arrepentimiento.aspx" />
     <Content Include="BandejaVacia.aspx" />
     <Content Include="carrito.aspx" />
     <Content Include="CarritoVacio.aspx" />
     <Content Include="CompraRealizada.aspx" />
-    <Content Include="ConfirmarPublicaciones.aspx" />
     <Content Include="ConfirmarUsuario.aspx" />
+    <Content Include="ConsultaArrepentimiento.aspx" />
     <Content Include="Consultarealizada.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Detalles.aspx" />
     <Content Include="DetallesCategoria.aspx" />
+    <Content Include="DetallesEntregas.aspx" />
     <Content Include="DetalleyConfirmar.aspx" />
     <Content Include="EliminarPausar.aspx" />
     <Content Include="EmailConsulta.aspx" />
-    <Content Include="Emailenviado.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="FavoritosVacio.aspx" />
     <Content Include="FinalizarCompra.aspx" />
@@ -143,6 +144,13 @@
     <Compile Include="Alta_Modificacion.aspx.designer.cs">
       <DependentUpon>Alta_Modificacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Arrepentimiento.aspx.cs">
+      <DependentUpon>Arrepentimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Arrepentimiento.aspx.designer.cs">
+      <DependentUpon>Arrepentimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BandejaVacia.aspx.cs">
       <DependentUpon>BandejaVacia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,19 +176,19 @@
     <Compile Include="CompraRealizada.aspx.designer.cs">
       <DependentUpon>CompraRealizada.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmarPublicaciones.aspx.cs">
-      <DependentUpon>ConfirmarPublicaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ConfirmarPublicaciones.aspx.designer.cs">
-      <DependentUpon>ConfirmarPublicaciones.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ConfirmarUsuario.aspx.cs">
       <DependentUpon>ConfirmarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConfirmarUsuario.aspx.designer.cs">
       <DependentUpon>ConfirmarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaArrepentimiento.aspx.cs">
+      <DependentUpon>ConsultaArrepentimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaArrepentimiento.aspx.designer.cs">
+      <DependentUpon>ConsultaArrepentimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultarealizada.aspx.cs">
       <DependentUpon>Consultarealizada.aspx</DependentUpon>
@@ -210,6 +218,13 @@
     <Compile Include="DetallesCategoria.aspx.designer.cs">
       <DependentUpon>DetallesCategoria.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetallesEntregas.aspx.cs">
+      <DependentUpon>DetallesEntregas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesEntregas.aspx.designer.cs">
+      <DependentUpon>DetallesEntregas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleyConfirmar.aspx.cs">
       <DependentUpon>DetalleyConfirmar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -230,13 +245,6 @@
     </Compile>
     <Compile Include="EmailConsulta.aspx.designer.cs">
       <DependentUpon>EmailConsulta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Emailenviado.aspx.cs">
-      <DependentUpon>Emailenviado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Emailenviado.aspx.designer.cs">
-      <DependentUpon>Emailenviado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -385,6 +393,9 @@
       <Project>{610e0cfc-d1a5-4b41-9f5b-2116646a51d8}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagen\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,7 +11,16 @@ namespace tp_integrador
 {
 
 
-    public partial class CofirmarPublicaciones
+    public partial class ConsultaArrepentimiento
     {
+
+        /// <summary>
+        /// Control btnConsulta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsulta;
     }
 }

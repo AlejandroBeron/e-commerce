@@ -84,14 +84,25 @@
                     </asp:LinkButton>
                     <%if (articulos.Pausa == true)
                         { %>
-                    <asp:LinkButton ID="btnActivar" runat="server" OnClick="btnPausar_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea pausar la Publicación?');" BorderStyle="Dotted" BorderColor="green" Style="border-radius: 20px; margin-left: 40px;">
+                    <asp:LinkButton ID="btnActivar" runat="server" OnClick="btnActivar_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea activar la Publicación?');" BorderStyle="Dotted" BorderColor="green" Style="border-radius: 20px; margin-left: 40px;">
                             <i class="bi bi-play-fill text-success" style="font-size:50px;"></i></asp:LinkButton>
                     <%}
-                        else
+                        else if (articulos.Pausa == false)
                         {%>
                     <asp:LinkButton ID="btnPausar" runat="server" OnClick="btnPausar_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea pausar la Publicación?');" BorderStyle="Dotted" BorderColor="black" Style="border-radius: 20px; margin-left: 40px;">
                             <i class="bi bi-pause-fill text-dark" style="font-size:50px;"></i></asp:LinkButton>
                     <%} %>
+                     <%if (articulos.Estado == true)
+                        { %>
+                    <asp:LinkButton ID="btnOferta" runat="server" OnClick="btnOferta_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea pausar la oferta?');" BorderStyle="Dotted" BorderColor="green" Style="border-radius: 20px; margin-left: 40px; color:darkorange;">
+                            <i class="bi bi-star-fill" style="font-size:50px;"></i></asp:LinkButton>
+                    <%}
+                        else if (articulos.Estado == false)
+                        {%>
+                    <asp:LinkButton ID="btnNooferta" runat="server" OnClick="btnNooferta_Click" CommandArgument='<%# Eval("articulos.Id_a") %>' UseSubmitBehavior="false" OnClientClick="return confirm('Esta seguro que desea poner articulo en oferta? ');" BorderStyle="Dotted" BorderColor="black" Style="border-radius: 20px; margin-left: 40px; color:red;">
+                            <i class="bi bi-star" style="font-size:50px;"></i></asp:LinkButton>
+                    <%} %>
+
                 </div>
 
 

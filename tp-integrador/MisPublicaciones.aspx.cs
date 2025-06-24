@@ -12,7 +12,7 @@ namespace tp_integrador
 {
     public partial class MisPublicaciones : System.Web.UI.Page
     {
-        public List<Inmueble> listaPropia { get; set; }
+       /* public List<Inmueble> listaPropia { get; set; }
         public List<Usuario> usuario { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace tp_integrador
                 }
             }
             return aux;
-        }
+        }*/
 
     }
 }

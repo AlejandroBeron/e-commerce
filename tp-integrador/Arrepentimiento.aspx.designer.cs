@@ -11,7 +11,7 @@ namespace tp_integrador
 {
 
 
-    public partial class FinalizarCompra
+    public partial class Arrepentimiento
     {
 
         /// <summary>
@@ -24,57 +24,66 @@ namespace tp_integrador
         protected global::System.Web.UI.WebControls.TextBox name;
 
         /// <summary>
-        /// Control lastName.
+        /// Control apellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastName;
+        protected global::System.Web.UI.WebControls.TextBox apellido;
 
         /// <summary>
-        /// Control documentNumber.
+        /// Control documento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox documentNumber;
+        protected global::System.Web.UI.WebControls.TextBox documento;
 
         /// <summary>
-        /// Control emailAdress.
+        /// Control email.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailAdress;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// Control purchaseOrder.
+        /// Control Tel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox purchaseOrder;
+        protected global::System.Web.UI.WebControls.TextBox Tel;
 
         /// <summary>
-        /// Control txtSummary.
+        /// Control Orden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSummary;
+        protected global::System.Web.UI.WebControls.TextBox Orden;
 
         /// <summary>
-        /// Control liveAlertBtn.
+        /// Control TextMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button liveAlertBtn;
+        protected global::System.Web.UI.WebControls.TextBox TextMensaje;
+
+        /// <summary>
+        /// Control Enviar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Enviar;
     }
 }

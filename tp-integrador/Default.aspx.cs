@@ -25,9 +25,9 @@ namespace tp_integrador
             Session["listaPropia"] = null;
 
 
-
             if (Session["listaarticulo"] == null)
             {
+
                 ArticulosNegocio iManager = new ArticulosNegocio();
                 listaArticulo = iManager.Listacompleta();
                 listaArticulo = validarurl(listaArticulo);
@@ -68,7 +68,7 @@ namespace tp_integrador
                 {
 
                     Usuario usuario = (Usuario)Session["usuario"];
-                    NegocioInmueble fnegocio = new NegocioInmueble();
+                    ArticulosNegocio fnegocio = new ArticulosNegocio();
 
 
                     return true;

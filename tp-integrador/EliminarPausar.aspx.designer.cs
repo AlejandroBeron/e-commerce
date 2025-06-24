@@ -42,6 +42,24 @@ namespace tp_integrador
         protected global::System.Web.UI.WebControls.LinkButton btnPausar;
 
         /// <summary>
+        /// Control btnOferta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnOferta;
+
+        /// <summary>
+        /// Control btnNooferta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnNooferta;
+
+        /// <summary>
         /// Control lblprecio.
         /// </summary>
         /// <remarks>

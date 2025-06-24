@@ -59,7 +59,10 @@ namespace tp_integrador
 
             nego.Pausar(id, !articulos.Pausa);
 
-     
+            ArticulosNegocio iManager = new ArticulosNegocio();
+            listaArticulo = iManager.Listacompleta();
+            listaArticulo = validarurl(listaArticulo);
+            Session["listaarticulo"] = listaArticulo;
             Response.Redirect("~/Default.aspx");
 
         }
@@ -67,7 +70,7 @@ namespace tp_integrador
         {
             ArticulosNegocio nego = new ArticulosNegocio();
             LinkButton btn = (LinkButton)sender;
-           
+
 
             nego.Eliminar(articulos);
 
@@ -114,6 +117,52 @@ namespace tp_integrador
             return aux;
         }
 
+        protected void btnActivar_Click(object sender, EventArgs e)
+        {
+            ArticulosNegocio nego = new ArticulosNegocio();
+            LinkButton btn = (LinkButton)sender;
+            int id = articulos.Id_a;
+
+            nego.Pausar(id, !articulos.Pausa);
+
+            ArticulosNegocio iManager = new ArticulosNegocio();
+            listaArticulo = iManager.Listacompleta();
+            listaArticulo = validarurl(listaArticulo);
+            Session["listaarticulo"] = listaArticulo;
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnOferta_Click(object sender, EventArgs e)
+        {
+            ArticulosNegocio nego = new ArticulosNegocio();
+            LinkButton btn = (LinkButton)sender;
+            int id = articulos.Id_a;
+
+            nego.Oferta(id, !articulos.Estado);
+
+            ArticulosNegocio iManager = new ArticulosNegocio();
+            listaArticulo = iManager.Listacompleta();
+            listaArticulo = validarurl(listaArticulo);
+            Session["listaarticulo"] = listaArticulo;
+            Response.Redirect("~/Default.aspx");
+
+        }
+
+        protected void btnNooferta_Click(object sender, EventArgs e)
+        {
+            ArticulosNegocio nego = new ArticulosNegocio();
+            LinkButton btn = (LinkButton)sender;
+            int id = articulos.Id_a;
+
+            nego.Oferta(id, !articulos.Estado);
+
+            ArticulosNegocio iManager = new ArticulosNegocio();
+            listaArticulo = iManager.Listacompleta();
+            listaArticulo = validarurl(listaArticulo);
+            Session["listaarticulo"] = listaArticulo;
+            Response.Redirect("~/Default.aspx");
+
+        }
     }
 
 }

@@ -134,5 +134,11 @@ namespace tp_integrador
             Response.Redirect( "~/Login.aspx");
 
         }
+
+        protected void arrepentimiento_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("~/Arrepentimiento.aspx");
+        }
     }
 }

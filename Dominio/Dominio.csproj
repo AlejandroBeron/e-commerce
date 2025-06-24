@@ -44,11 +44,12 @@
     <Compile Include="Articulos.cs" />
     <Compile Include="Carrito.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="Compra.cs" />
     <Compile Include="DatosPersonales.cs" />
+    <Compile Include="DetalleCompra.cs" />
     <Compile Include="Elementoauxiliar.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="Imagen.cs" />
-    <Compile Include="Inmueble.cs" />
     <Compile Include="marcas.cs" />
     <Compile Include="Ubicacion.cs" />
     <Compile Include="Usuario.cs" />

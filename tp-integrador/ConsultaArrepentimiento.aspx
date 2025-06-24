@@ -1,14 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster.Master" AutoEventWireup="true" CodeBehind="CompraRealizada.aspx.cs" Inherits="tp_integrador.CompraRealizada" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster.Master" AutoEventWireup="true" CodeBehind="ConsultaArrepentimiento.aspx.cs" Inherits="tp_integrador.ConsultaArrepentimiento" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
         <div>
         <div>
             <center>
 
                 <div class="row" style="margin-top: 5%; margin-bottom: 2%; justify-content: center;">
 
-                    <h1 scope="col" style="color: black; width: 600%;"><strong>¡COMPRA REALIZADA CON EXITO!</strong></h1>
+                    <h1 scope="col" style="color: black; width: 600%;"><strong>¡ARREPENTIMIENTO REALIZADO CON EXITO!</strong></h1>
                 </div>
             </center>
 
@@ -20,13 +21,10 @@
 
             <div class="row" style="margin-top: 5%; margin-bottom: 2%; justify-content: center;">
 
-                <h2 scope="col" style="color: black; width: 600%;"><strong>¡MUCHAS GRACIAS POR ELEGIRNOS!</strong></h2>
+                <h2 scope="col" style="color: black; width: 600%;"><strong>¡MUCHAS GRACIAS NOS CONTACTAREMOS A LA BREVEDAD!</strong></h2>
             </div>
             <div>
-                <asp:Button ID="btnComprar" runat="server" Text="Realizar otra Compra" OnClick="btnComprar_Click" CommandArgument='<%# Eval("articulo.codigo_a") %>'
-
-                    class="btn btn-dark" Style="font-weight: bold; border-color: white; font-size: 25px;" />
-                <asp:Button ID="BtnDescargar" runat="server" Text="Descargar" OnClick="BtnDescargar_Click"
+                <asp:Button ID="btnConsulta" runat="server" Text="Inicio" OnClick="btnConsulta_Click" CommandArgument='<%# Eval("articulo.codigo_a") %>'
 
                     class="btn btn-dark" Style="font-weight: bold; border-color: white; font-size: 25px;" />
                 
@@ -34,6 +32,11 @@
             <br />  
             <br />  
     </div>
+
+
+
+
+
 
 
 

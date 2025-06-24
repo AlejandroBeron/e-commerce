@@ -7,10 +7,17 @@
     <br />
     <div style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/PSX-Console-wController.png/1200px-PSX-Console-wController.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height: 20em; display: flex; flex-direction: column; justify-content: center">
 
-        <h2 style="font-size: 3em; text-align: center; padding: 20px; background: rgba(0,0,0,0.5); color:aliceblue;"><%:articulos.categoria_a%></h2>
+        <h2 style="font-size: 3em; text-align: center; padding: 20px; background: rgba(0,0,0,0.5); color: aliceblue;"><%:articulos.categoria_a%></h2>
     </div>
     <br />
     <br />
+    <% if ((List<Dominio.Articulos>)Session["articulofiltrados"] != null)
+        {
+            listaarticulo = (List<Dominio.Articulos>)Session["articulofiltrados"];
+            Session.Remove("articulofiltrados");
+        }%>
+
+
     <div class="container">
         <center>
             <br />
@@ -20,10 +27,20 @@
                     <a class="nav-link active" aria-current="page" href="#"><strong>Detalles</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true"><strong>Entregas</strong></a>
+                    <a class="nav-link active" aria-current="page" href="DetallesEntregas.aspx"><strong>Entregas</strong></a>
                 </li>
             </ul>
+            <% int contador = 0; %>
+
+
             <div class="row" style="margin-top: 10%; margin-bottom: 10%">
+
+                <% foreach (Dominio.Articulos articulo in listaarticulo)
+                    { %>
+                <% if (contador == 0)
+                    { %>
+
+
                 <div class="col-md-6">
 
 
@@ -101,6 +118,13 @@
 
 
                         <center>
+                            <%if (articulos.Pausa == true)
+                                {%>
+                            <h2 style="font-size: 2em; text-align: center; padding: 10px; background-color:darkgrey; color: darkred;">PRODUCTO SIN STOCK</h2>
+
+                            <%} %>
+                            <% if (articulos.Pausa == false)
+                                {%>
                             <asp:Button ID="btnagregarfavorito" class="btn btn-dark" runat="server" Text="Agregar al carrito" OnClick="btnagregarfavorito_Click1" Style="font-weight: bold; width: 30%;" />
 
                             <div class="mb-3">
@@ -114,8 +138,8 @@
                                     <option value="5">5</option>
 
                                 </select>
-
                             </div>
+                            <%} %>
                         </center>
                         <% if (Session["usuario"] == null)
 
@@ -125,8 +149,11 @@
 
 
                         <a class="btn btn-dark text-white text-decoration-none" href="Default.aspx" style="margin-bottom: 2px; width: 30%"><strong>Atrás</strong></a>
+                      
+                        <% if (articulos.Pausa == false)
+                            {%>
                         <a class="btn btn-dark text-white text-decoration-none" href="carrito.aspx" style="margin-bottom: 2px; width: 30%"><strong>Comprar</strong></a>
-
+                        <%} %>
                     </center>
                 </div>
 
@@ -156,7 +183,7 @@
 
                                 <label for="inputState" class="form-label" style="font-size: 25px; color: black; margin-top: 10px;"><strong>Descripción:</strong></label>
                                 <br />
-                               
+
                                 <p><strong id="lblDescripcion" runat="server" style="font-size: 20px; color: black;"></strong></p>
                             </div>
 
@@ -170,13 +197,15 @@
                                 <br />
                                 <br />
                                 <p class="sc-f6cfc5e5-5 bWRKiI"><strong>¡Nuestras promociones bancarias!</strong></p>
-                                  <div class="sc-f6cfc5e5-3 fAAgss"><img src="https://images.fravega.com/f300/11509c3fdfabb96a8fe2c3692726597b.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
-                                class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/4af8f5c4d9776dcbd6862adf577b3856.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
-                                    class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/d91d7904a85783a86377e30feb87e7ff.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
-                                        class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/54c0d769ece1b00f739360d6c900e4f9.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
-                                            class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/519814f3d2e261325c676a08e1f3b6c1.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago" 
-                                                class="sc-f6cfc5e5-9 kBtWJP"></div>
-    
+                                <div class="sc-f6cfc5e5-3 fAAgss">
+                                    <img src="https://images.fravega.com/f300/11509c3fdfabb96a8fe2c3692726597b.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago"
+                                        class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/4af8f5c4d9776dcbd6862adf577b3856.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago"
+                                            class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/d91d7904a85783a86377e30feb87e7ff.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago"
+                                                class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/54c0d769ece1b00f739360d6c900e4f9.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago"
+                                                    class="sc-f6cfc5e5-9 kBtWJP"><img src="https://images.fravega.com/f300/519814f3d2e261325c676a08e1f3b6c1.png.webp" width="50" height="auto" loading="lazy" alt="Opción de pago"
+                                                        class="sc-f6cfc5e5-9 kBtWJP">
+                                </div>
+
                             </div>
 
                         </div>
@@ -189,4 +218,11 @@
             </div>
         </center>
     </div>
+    <% contador++; %>
+    <% if (contador == 1)
+        {%>
+    <% } %>
+    <% } %>
+    <%
+        }%>
 </asp:Content>

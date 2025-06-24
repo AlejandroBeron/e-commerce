@@ -11,8 +11,8 @@ namespace tp_integrador
 {
     public partial class DetalleyConfirmar : System.Web.UI.Page
     {
-        public List<Inmueble> listaautorizar { get; set; }
-        public Inmueble inmueble { get; set; }
+        public List<Articulos> listaautorizar { get; set; }
+        public Articulos inmueble { get; set; }
         Usuario usuario { get; set; }
         NegocioUsuario usario = new NegocioUsuario();
 
@@ -21,7 +21,7 @@ namespace tp_integrador
 
             Session["ReturnUrl"] = Request.Url.ToString();
 
-            listaautorizar = (List<Inmueble>)Session["listaautorizar"];
+         /*   listaautorizar = (List<Inmueble>)Session["listaautorizar"];
             int Id_I = Request.QueryString["Id"] != null && int.TryParse(Request.QueryString["Id"], out int id) ? id : -1;
             inmueble = listaautorizar.FirstOrDefault(i => i.Id_I == Id_I);
             try
@@ -115,7 +115,7 @@ namespace tp_integrador
                 eNego.agregar(email);
                 Response.Redirect("~/ConfirmarPublicaciones.aspx");
 
-            }
+            }*/
         }
     }
 }
